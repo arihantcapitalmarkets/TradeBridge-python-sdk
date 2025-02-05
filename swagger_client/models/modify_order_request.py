@@ -54,6 +54,7 @@ class PrdTypeEnum(str, Enum):
     NRML = "NRML"
     TNC = "TNC"
     DELIVERY = "DELIVERY"
+    CARRYFORWARD = "CARRYFORWARD"
     NONE = "NONE"
 
 

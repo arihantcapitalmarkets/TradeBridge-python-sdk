@@ -14,29 +14,30 @@ class OrderControllerApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def brokerage_charges(self, body, authorization, api_key):  # noqa: E501
+    def brokerage_charges(self, body, authorization, api_key, source):  # noqa: E501
         """Brokerage Charges  # noqa: E501
 
+        :param source:
         :param api_key:
         :param authorization:
         :param BrokerageChargeRequest body: (required)
         :return: BrokerageChargeResponse.
         """
-        (data) = self.brokerage_charges_with_http_info(body, authorization, api_key)  # noqa: E501
+        (data) = self.brokerage_charges_with_http_info(body, authorization, api_key, source)  # noqa: E501
         return data
 
-    def brokerage_charges_with_http_info(self, body, authorization, api_key):  # noqa: E501
+    def brokerage_charges_with_http_info(self, body, authorization, api_key, source):  # noqa: E501
         """Brokerage Charges  # noqa: E501
 
+        :param source:
         :param api_key:
         :param authorization:
         :param BrokerageChargeRequest body: (required)
         :return: BrokerageChargeResponse.
         """
 
-        all_params = ['body', 'authorization', 'api_key', 'async_req', '_return_http_data_only',
-                      '_preload_content',
-                      '_request_timeout']  # noqa: E501
+        all_params = ['body', 'authorization', 'api_key', 'source', 'async_req', '_return_http_data_only',
+                      '_preload_content', '_request_timeout']  # noqa: E501
 
         params = locals()
 
@@ -51,6 +52,9 @@ class OrderControllerApi(object):
         if ('api_key' not in params or
                 params['api_key'] is None):
             raise ValueError("Missing the required parameter `api_key` when calling `brokerage_charges`")  # noqa: E501
+        if ('source' not in params or
+                params['source'] is None):
+            raise ValueError("Missing the required parameter `source` when calling `brokerage_charges`")  # noqa: E501
 
         collection_formats = {}
 
@@ -63,6 +67,8 @@ class OrderControllerApi(object):
             header_params['Authorization'] = params['authorization']  # noqa: E501
         if 'api_key' in params:
             header_params['api-key'] = params['api_key']  # noqa: E501
+        if 'source' in params:
+            header_params['source'] = params['source']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -97,9 +103,10 @@ class OrderControllerApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def cancel_order(self, body, authorization, api_key, latitude, longitude):  # noqa: E501
+    def cancel_order(self, body, authorization, api_key, latitude, longitude, source):  # noqa: E501
         """Cancel Order  # noqa: E501
 
+        :param source:
         :param longitude:
         :param latitude:
         :param api_key:
@@ -107,13 +114,14 @@ class OrderControllerApi(object):
         :param CancelOrderRequest body: (required)
         :return: CancelOrderResponse.
         """
-        (data) = self.cancel_order_with_http_info(body, authorization, api_key, latitude, longitude)  # noqa: E501
+        (data) = self.cancel_order_with_http_info(body, authorization, api_key, latitude, longitude, source)  # noqa: E501
         return data
 
-    def cancel_order_with_http_info(self, body, authorization, api_key, latitude, longitude):
+    def cancel_order_with_http_info(self, body, authorization, api_key, latitude, longitude, source):
         # noqa: E501
         """Cancel Order  # noqa: E501
 
+        :param source:
         :param longitude:
         :param latitude:
         :param api_key:
@@ -122,9 +130,8 @@ class OrderControllerApi(object):
         :return: CancelOrderResponse.
         """
 
-        all_params = ['body', 'latitude', 'longitude', 'authorization', 'api_key', 'async_req', '_return_http_data_only',
-                      '_preload_content',
-                      '_request_timeout']  # noqa: E501
+        all_params = ['body', 'latitude', 'longitude', 'authorization', 'api_key', 'source', 'async_req', '_return_http_data_only',
+                      '_preload_content', '_request_timeout']  # noqa: E501
 
         params = locals()
 
@@ -139,6 +146,9 @@ class OrderControllerApi(object):
         if ('api_key' not in params or
                 params['api_key'] is None):
             raise ValueError("Missing the required parameter `api_key` when calling `cancel_order`")  # noqa: E501
+        if ('source' not in params or
+                params['source'] is None):
+            raise ValueError("Missing the required parameter `source` when calling `cancel_order`")  # noqa: E501
         if ('latitude' not in params or
                 params['latitude'] is None):
             return ''
@@ -157,6 +167,8 @@ class OrderControllerApi(object):
             header_params['Authorization'] = params['authorization']  # noqa: E501
         if 'api_key' in params:
             header_params['api-key'] = params['api_key']  # noqa: E501
+        if 'source' in params:
+            header_params['source'] = params['source']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -193,9 +205,10 @@ class OrderControllerApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def exit_order(self, body, authorization, api_key, latitude, longitude):  # noqa: E501
+    def exit_order(self, body, authorization, api_key, latitude, longitude, source):  # noqa: E501
         """Exit an Order  # noqa: E501
 
+        :param source:
         :param longitude:
         :param latitude:
         :param api_key:
@@ -203,12 +216,13 @@ class OrderControllerApi(object):
         :param ExitOrderRequest body: (required)
         :return: ExitOrderResponse.
         """
-        (data) = self.exit_order_with_http_info(body, authorization, api_key, latitude, longitude)  # noqa: E501
+        (data) = self.exit_order_with_http_info(body, authorization, api_key, latitude, longitude, source)  # noqa: E501
         return data
 
-    def exit_order_with_http_info(self, body, authorization, api_key, latitude, longitude):  # noqa: E501
+    def exit_order_with_http_info(self, body, authorization, api_key, latitude, longitude, source):  # noqa: E501
         """Exit an Order  # noqa: E501
 
+        :param source:
         :param longitude:
         :param latitude:
         :param api_key:
@@ -217,7 +231,7 @@ class OrderControllerApi(object):
         :return: ExitOrderResponse.
         """
 
-        all_params = ['body', 'latitude', 'longitude', 'authorization', 'api_key', 'async_req', '_return_http_data_only',
+        all_params = ['body', 'latitude', 'longitude', 'authorization', 'api_key', 'source', 'async_req', '_return_http_data_only',
                       '_preload_content', '_request_timeout']  # noqa: E501
 
         params = locals()
@@ -233,6 +247,9 @@ class OrderControllerApi(object):
         if ('api_key' not in params or
                 params['api_key'] is None):
             raise ValueError("Missing the required parameter `api_key` when calling `exit_order`")  # noqa: E501
+        if ('source' not in params or
+                params['source'] is None):
+            raise ValueError("Missing the required parameter `source` when calling `exit_order`")  # noqa: E501
         if ('latitude' not in params or
                 params['latitude'] is None):
             return ''
@@ -251,6 +268,8 @@ class OrderControllerApi(object):
             header_params['Authorization'] = params['authorization']  # noqa: E501
         if 'api_key' in params:
             header_params['api-key'] = params['api_key']  # noqa: E501
+        if 'source' in params:
+            header_params['source'] = params['source']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -287,9 +306,10 @@ class OrderControllerApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def modify_order(self, body, authorization, api_key, latitude, longitude):  # noqa: E501
+    def modify_order(self, body, authorization, api_key, latitude, longitude, source):  # noqa: E501
         """Modify Order  # noqa: E501
 
+        :param source:
         :param longitude:
         :param latitude:
         :param api_key:
@@ -297,12 +317,13 @@ class OrderControllerApi(object):
         :param ModifyOrderRequest body: (required)
         :return: ModifyOrderResponse.
         """
-        (data) = self.modify_order_with_http_info(body, authorization, api_key, latitude, longitude)  # noqa: E501
+        (data) = self.modify_order_with_http_info(body, authorization, api_key, latitude, longitude, source)  # noqa: E501
         return data
 
-    def modify_order_with_http_info(self, body, authorization, api_key, latitude, longitude):  # noqa: E501
+    def modify_order_with_http_info(self, body, authorization, api_key, latitude, longitude, source):  # noqa: E501
         """Modify Order  # noqa: E501
 
+        :param source:
         :param longitude:
         :param latitude:
         :param api_key:
@@ -311,7 +332,7 @@ class OrderControllerApi(object):
         :return: ModifyOrderResponse.
         """
 
-        all_params = ['body', 'latitude', 'longitude', 'authorization', 'api_key', 'async_req',
+        all_params = ['body', 'latitude', 'longitude', 'authorization', 'source', 'api_key', 'async_req',
                       '_return_http_data_only', '_preload_content', '_request_timeout']  # noqa: E501
 
         params = locals()
@@ -327,6 +348,9 @@ class OrderControllerApi(object):
         if ('api_key' not in params or
                 params['api_key'] is None):
             raise ValueError("Missing the required parameter `api_key` when calling `modify_order`")  # noqa: E501
+        if ('source' not in params or
+                params['source'] is None):
+            raise ValueError("Missing the required parameter `source` when calling `modify_order`")  # noqa: E501
         if ('latitude' not in params or
                 params['latitude'] is None):
             return ''
@@ -345,6 +369,8 @@ class OrderControllerApi(object):
             header_params['Authorization'] = params['authorization']  # noqa: E501
         if 'api_key' in params:
             header_params['api-key'] = params['api_key']  # noqa: E501
+        if 'source' in params:
+            header_params['source'] = params['source']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -381,9 +407,10 @@ class OrderControllerApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def place_order(self, body, authorization, api_key, latitude, longitude):  # noqa: E501
+    def place_order(self, body, authorization, api_key, latitude, longitude, source):  # noqa: E501
         """Place Order  # noqa: E501
 
+        :param source:
         :param longitude:
         :param latitude:
         :param api_key:
@@ -391,12 +418,13 @@ class OrderControllerApi(object):
         :param PlaceOrderRequest body: (required)
         :return: PlaceOrderResponse.
         """
-        (data) = self.place_order_with_http_info(body, authorization, api_key, latitude, longitude)  # noqa: E501
+        (data) = self.place_order_with_http_info(body, authorization, api_key, latitude, longitude, source)  # noqa: E501
         return data
 
-    def place_order_with_http_info(self, body, authorization, api_key, latitude, longitude):  # noqa: E501
+    def place_order_with_http_info(self, body, authorization, api_key, latitude, longitude, source):  # noqa: E501
         """Place Order  # noqa: E501
 
+        :param source:
         :param longitude:
         :param latitude:
         :param api_key:
@@ -405,7 +433,7 @@ class OrderControllerApi(object):
         :return: PlaceOrderResponse.
         """
 
-        all_params = ['body', 'latitude', 'longitude', 'authorization', 'api_key', 'async_req', '_return_http_data_only',
+        all_params = ['body', 'latitude', 'longitude', 'authorization', 'api_key', 'source', 'async_req', '_return_http_data_only',
                       '_preload_content', '_request_timeout']  # noqa: E501
 
         params = locals()
@@ -427,6 +455,9 @@ class OrderControllerApi(object):
         if ('longitude' not in params or
                 params['longitude'] is None):
             return ''
+        if ('source' not in params or
+                params['source'] is None):
+            raise ValueError("Missing the required parameter `source` when calling `place_order`")  # noqa: E501
 
         collection_formats = {}
 
@@ -439,6 +470,8 @@ class OrderControllerApi(object):
             header_params['Authorization'] = params['authorization']  # noqa: E501
         if 'api_key' in params:
             header_params['api-key'] = params['api_key']  # noqa: E501
+        if 'source' in params:
+            header_params['source'] = params['source']  # noqa: E501
 
         form_params = []
         local_var_files = {}

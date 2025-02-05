@@ -1,19 +1,20 @@
-import attr
+from typing import Dict
 
-from swagger_client.models.data import Data
+import attr
 
 
 @attr.s(auto_attribs=True)
-class RefreshTokenResponse:
+class SuccessResponse:
+    """Class representing the full login response."""
     infoID: str = None
     infoMsg: str = None
-    data: Data = None
+    data: Dict[str, str] = None
     timestamp: int = None
 
     swagger_types = {
         'infoID': 'str',
         'infoMsg': 'str',
-        'data': 'Data',
+        'data': 'dict(str, str)',
         'timestamp': 'int'
     }
 

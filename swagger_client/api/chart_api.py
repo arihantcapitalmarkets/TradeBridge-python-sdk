@@ -14,9 +14,10 @@ class ChartApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def historical_data(self, authorization, api_key, symbol, resolution, _from, to, instrument, exc, streamSymbol):  # noqa: E501
+    def historical_data(self, authorization, api_key, source, symbol, resolution, _from, to, instrument, exc, streamSym):  # noqa: E501
         """HistoricalDataAPI  # noqa: E501
 
+        :param source:
         :param str authorization: (required)
         :param str api_key: (required)
         :param str symbol: (required)
@@ -25,17 +26,18 @@ class ChartApi(object):
         :param str to: (required)
         :param str instrument: (required)
         :param str exc: (required)
-        :param str streamSymbol: (required)
+        :param str streamSym: (required)
         :return: HistorySuccess.
         """
-        (data) = self.historical_data_with_http_info(authorization, api_key, symbol, resolution, _from, to, instrument,
-                                                     exc, streamSymbol)  # noqa: E501
+        (data) = self.historical_data_with_http_info(authorization, api_key, source, symbol, resolution, _from, to, instrument,
+                                                     exc, streamSym)  # noqa: E501
         return data
 
-    def historical_data_with_http_info(self, authorization, api_key, symbol, resolution, _from, to, instrument, exc,
-                                       streamSymbol):  # noqa: E501
+    def historical_data_with_http_info(self, authorization, api_key, source, symbol, resolution, _from, to, instrument, exc,
+                                       streamSym):  # noqa: E501
         """HistoricalDataAPI  # noqa: E501
 
+        :param source:
         :param str authorization: (required)
         :param str api_key: (required)
         :param str symbol: (required)
@@ -44,12 +46,12 @@ class ChartApi(object):
         :param str to: (required)
         :param str instrument: (required)
         :param str exc: (required)
-        :param str streamSymbol: (required)
+        :param str streamSym: (required)
         :return: HistorySuccess.
         """
 
-        all_params = ['authorization', 'api_key', 'symbol', 'resolution', '_from', 'to', 'instrument', 'exc',
-                      'streamSymbol', 'async_req', '_return_http_data_only', '_preload_content',
+        all_params = ['authorization', 'api_key', 'source', 'symbol', 'resolution', '_from', 'to', 'instrument', 'exc',
+                      'streamSym', 'async_req', '_return_http_data_only', '_preload_content',
                       '_request_timeout']  # noqa: E501
 
         params = locals()
@@ -63,6 +65,9 @@ class ChartApi(object):
         if ('api_key' not in params or
                 params['api_key'] is None):
             raise ValueError("Missing the required parameter `api_key` when calling `historical_data`")  # noqa: E501
+        if ('source' not in params or
+                params['source'] is None):
+            raise ValueError("Missing the required parameter `source` when calling `historical_data`")  # noqa: E501
         # verify the required parameter 'symbol' is set
         if ('symbol' not in params or
                 params['symbol'] is None):
@@ -88,10 +93,10 @@ class ChartApi(object):
                 params['exc'] is None):
             raise ValueError("Missing the required parameter `exc` when calling `historical_data`")  # noqa: E501
         # verify the required parameter 'stream_symbol' is set
-        if ('streamSymbol' not in params or
-                params['streamSymbol'] is None):
+        if ('streamSym' not in params or
+                params['streamSym'] is None):
             raise ValueError(
-                "Missing the required parameter `streamSymbol` when calling `historical_data`")  # noqa: E501
+                "Missing the required parameter `streamSym` when calling `historical_data`")  # noqa: E501
 
         collection_formats = {}
 
@@ -110,14 +115,16 @@ class ChartApi(object):
             query_params.append(('instrument', params['instrument']))  # noqa: E501
         if 'exc' in params:
             query_params.append(('exc', params['exc']))  # noqa: E501
-        if 'streamSymbol' in params:
-            query_params.append(('streamSymbol', params['streamSymbol']))  # noqa: E501
+        if 'streamSym' in params:
+            query_params.append(('streamSym', params['streamSym']))  # noqa: E501
 
         header_params = {}
         if 'authorization' in params:
             header_params['Authorization'] = params['authorization']  # noqa: E501
         if 'api_key' in params:
             header_params['api-key'] = params['api_key']  # noqa: E501
+        if 'source' in params:
+            header_params['source'] = params['source']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -146,27 +153,29 @@ class ChartApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def intraday(self, body, authorization, api_key):  # noqa: E501
+    def intraday(self, body, authorization, api_key, source):  # noqa: E501
         """IntradayAPI  # noqa: E501
 
+        :param source:
         :param IntradayRequest body: (required)
         :param str authorization: (required)
         :param str api_key: (required)
         :return: IntradaySuccess.
         """
-        (data) = self.intraday_with_http_info(body, authorization, api_key)  # noqa: E501
+        (data) = self.intraday_with_http_info(body, authorization, api_key, source)  # noqa: E501
         return data
 
-    def intraday_with_http_info(self, body, authorization, api_key):  # noqa: E501
+    def intraday_with_http_info(self, body, authorization, api_key, source):  # noqa: E501
         """IntradayAPI  # noqa: E501
 
+        :param source:
         :param IntradayRequest body: (required)
         :param str authorization: (required)
         :param str api_key: (required)
         :return: IntradaySuccess.
         """
 
-        all_params = ['body', 'authorization', 'api_key', 'async_req', '_return_http_data_only', '_preload_content',
+        all_params = ['body', 'authorization', 'api_key', 'source', 'async_req', '_return_http_data_only', '_preload_content',
                       '_request_timeout']  # noqa: E501
 
         params = locals()
@@ -183,6 +192,9 @@ class ChartApi(object):
         if ('api_key' not in params or
                 params['api_key'] is None):
             raise ValueError("Missing the required parameter `api_key` when calling `intraday_candle_data`")  # noqa: E501
+        if ('source' not in params or
+                params['source'] is None):
+            raise ValueError("Missing the required parameter `source` when calling `intraday_candle_data`")  # noqa: E501
 
         collection_formats = {}
 
@@ -195,6 +207,8 @@ class ChartApi(object):
             header_params['Authorization'] = params['authorization']  # noqa: E501
         if 'api_key' in params:
             header_params['api-key'] = params['api_key']  # noqa: E501
+        if 'source' in params:
+            header_params['source'] = params['source']  # noqa: E501
 
         form_params = []
         local_var_files = {}

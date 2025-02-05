@@ -64,13 +64,13 @@ class InstrumentEnum(str, Enum):
 
 
 @attr.s(auto_attribs=True)
-class IntradayData:
+class IntradayCandleDataRequest:
     """Class representing the data for intraday candle request."""
 
     symbol: str = None
     resolution: str = None
     instrument: InstrumentEnum = None
-    exchange: ExcEnum = None
+    exc: ExcEnum = None
     startTime: str = None
     endTime: str = None
 
@@ -78,7 +78,7 @@ class IntradayData:
         'symbol': 'str',
         'resolution': 'str',
         'instrument': 'InstrumentEnum',
-        'exchange': 'ExcEnum',
+        'exc': 'ExcEnum',
         'startTime': 'str',
         'endTime': 'str',
     }
@@ -87,23 +87,7 @@ class IntradayData:
         'symbol': 'symbol',
         'resolution': 'resolution',
         'instrument': 'instrument',
-        'exchange': 'exchange',
+        'exc': 'exc',
         'startTime': 'startTime',
         'endTime': 'endTime',
     }
-
-
-@attr.s(auto_attribs=True)
-class IntradayCandleDataRequest:
-    """Class representing an intraday candle data request."""
-
-    data: IntradayData = None
-
-    swagger_types = {
-        'data': 'IntradayData',
-    }
-
-    attribute_map = {
-        'data': 'data',
-    }
-

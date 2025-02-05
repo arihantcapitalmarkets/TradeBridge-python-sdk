@@ -14,37 +14,18 @@ class LoginProfileApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def get_profile(self, body, authorization, api_key):  # noqa: E501
-        """Get ProfileAPI  # noqa: E501
+    def get_profile(self, authorization, api_key, source):  # noqa: E501
 
-        :param GetProfileRequest body: (required)
-        :param str authorization: (required)
-        :param str api_key: (required)
-        :return: GetProfileSucsess.
-        """
-        (data) = self.get_profile_with_http_info(body, authorization, api_key)  # noqa: E501
+        (data) = self.get_profile_with_http_info(authorization, api_key, source)  # noqa: E501
         return data
 
-    def get_profile_with_http_info(self, body, authorization, api_key):  # noqa: E501
-        """Get ProfileAPI  # noqa: E501
+    def get_profile_with_http_info(self, authorization, api_key, source):  # noqa: E501
 
-        :param GetProfileRequest body: (required)
-        :param str authorization: (required)
-        :param str api_key: (required)
-        :return: GetProfileSucsess
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body', 'authorization', 'api_key', 'async_req', '_return_http_data_only', '_preload_content',
+        all_params = ['authorization', 'api_key', 'source', 'async_req', '_return_http_data_only', '_preload_content',
                       '_request_timeout']  # noqa: E501
 
         params = locals()
 
-        # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `get_profile`")  # noqa: E501
         # verify the required parameter 'authorization' is set
         if ('authorization' not in params or
                 params['authorization'] is None):
@@ -54,30 +35,27 @@ class LoginProfileApi(object):
                 params['api_key'] is None):
             raise ValueError("Missing the required parameter `api_key` when calling `get_profile`")  # noqa: E501
 
+        if ('source' not in params or
+                params['source'] is None):
+            raise ValueError("Missing the required parameter `source` when calling `get_profile`")  # noqa: E501
+
         collection_formats = {}
-
         path_params = {}
-
-        query_params = []
-
+        query_params = {}
         header_params = {}
         if 'authorization' in params:
             header_params['Authorization'] = params['authorization']  # noqa: E501
         if 'api_key' in params:
             header_params['api-key'] = params['api_key']  # noqa: E501
+        if 'source' in params:
+            header_params['source'] = params['source']  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
 
         # Authentication setting

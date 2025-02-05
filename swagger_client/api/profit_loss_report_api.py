@@ -14,27 +14,29 @@ class ProfitLossReportApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def profit_loss_cash_report(self, body, authorization, api_key):  # noqa: E501
+    def profit_loss_cash_report(self, body, authorization, api_key, source):  # noqa: E501
         """ProfitLossReportAPI  # noqa: E501
 
+        :param source:
         :param ProfitLossRequest body: (required)
         :param str authorization: (required)
         :param str api_key: (required)
         :return: ProfitLossCashSuccess.
         """
-        (data) = self.profit_loss_cash_report_with_http_info(body, authorization, api_key)  # noqa: E501
+        (data) = self.profit_loss_cash_report_with_http_info(body, authorization, api_key, source)  # noqa: E501
         return data
 
-    def profit_loss_cash_report_with_http_info(self, body, authorization, api_key):  # noqa: E501
+    def profit_loss_cash_report_with_http_info(self, body, authorization, api_key, source):  # noqa: E501
         """ProfitLossReportAPI  # noqa: E501
 
+        :param source:
         :param ProfitLossRequest body: (required)
         :param str authorization: (required)
         :param str api_key: (required)
         :return: ProfitLossCashSuccess.
         """
 
-        all_params = ['body', 'authorization', 'api_key', 'async_req', '_return_http_data_only', '_preload_content',
+        all_params = ['body', 'authorization', 'api_key', 'source', 'async_req', '_return_http_data_only', '_preload_content',
                       '_request_timeout']  # noqa: E501
 
         params = locals()
@@ -52,6 +54,9 @@ class ProfitLossReportApi(object):
         if ('api_key' not in params or
                 params['api_key'] is None):
             raise ValueError("Missing the required parameter `api_key` when calling `profit_loss_cash_report`")  # noqa: E501
+        if ('source' not in params or
+                params['source'] is None):
+            raise ValueError("Missing the required parameter `source` when calling `profit_loss_cash_report`")  # noqa: E501
 
         collection_formats = {}
 
@@ -64,6 +69,8 @@ class ProfitLossReportApi(object):
             header_params['Authorization'] = params['authorization']  # noqa: E501
         if 'api_key' in params:
             header_params['api-key'] = params['api_key']  # noqa: E501
+        if 'source' in params:
+            header_params['source'] = params['source']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -99,14 +106,14 @@ class ProfitLossReportApi(object):
             collection_formats=collection_formats)
 
     # Profit Loss Fo Report
-    def profit_loss_fo_report(self, body, authorization, api_key):  # noqa: E501
+    def profit_loss_fo_report(self, body, authorization, api_key, source):  # noqa: E501
 
-        (data) = self.profit_loss_fo_report_with_http_info(body, authorization, api_key)  # noqa: E501
+        (data) = self.profit_loss_fo_report_with_http_info(body, authorization, api_key, source)  # noqa: E501
         return data
 
-    def profit_loss_fo_report_with_http_info(self, body, authorization, api_key):  # noqa: E501
+    def profit_loss_fo_report_with_http_info(self, body, authorization, api_key, source):  # noqa: E501
 
-        all_params = ['body', 'authorization', 'api_key', 'async_req', '_return_http_data_only', '_preload_content',
+        all_params = ['body', 'authorization', 'api_key', 'source', 'async_req', '_return_http_data_only', '_preload_content',
                       '_request_timeout']  # noqa: E501
 
         params = locals()
@@ -124,6 +131,9 @@ class ProfitLossReportApi(object):
         if ('api_key' not in params or
                 params['api_key'] is None):
             raise ValueError("Missing the required parameter `api_key` when calling `profit_loss_fo_report`")  # noqa: E501
+        if ('source' not in params or
+                params['source'] is None):
+            raise ValueError("Missing the required parameter `source` when calling `profit_loss_fo_report`")  # noqa: E501
 
         collection_formats = {}
 
@@ -136,6 +146,8 @@ class ProfitLossReportApi(object):
             header_params['Authorization'] = params['authorization']  # noqa: E501
         if 'api_key' in params:
             header_params['api-key'] = params['api_key']  # noqa: E501
+        if 'source' in params:
+            header_params['source'] = params['source']  # noqa: E501
 
         form_params = []
         local_var_files = {}

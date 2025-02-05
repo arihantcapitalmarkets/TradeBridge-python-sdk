@@ -2,16 +2,18 @@ import attr
 
 
 @attr.s(auto_attribs=True)
-class RefreshTokenRequest:
+class ResendOtpRequest:
+    """Class representing the full login response."""
     userId: str = None
-    refreshToken: str = None
+    txnId: str = None
 
     swagger_types = {
         'userId': 'str',
-        'refreshToken': 'str'
+        'txnId': 'str'
     }
 
     attribute_map = {
         'userId': 'userId',
-        'refreshToken': 'refreshToken'
+        'txnId': 'txnId'
     }
+

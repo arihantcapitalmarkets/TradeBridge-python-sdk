@@ -16,27 +16,29 @@ class PositionControllerApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def convert_position(self, body, authorization, api_key):  # noqa: E501
+    def convert_position(self, body, authorization, api_key, source):  # noqa: E501
         """Position Conversion  # noqa: E501
 
+        :param source:
         :param api_key:
         :param authorization:
         :param PositionConversionRequest body: (required)
         :return: PositionConversionResponse.
         """
-        (data) = self.convert_position_with_http_info(body, authorization, api_key)  # noqa: E501
+        (data) = self.convert_position_with_http_info(body, authorization, api_key, source)  # noqa: E501
         return data
 
-    def convert_position_with_http_info(self, body, authorization, api_key):  # noqa: E501
+    def convert_position_with_http_info(self, body, authorization, api_key, source):  # noqa: E501
         """Position Conversion  # noqa: E501
 
+        :param source:
         :param api_key:
         :param authorization:
         :param PositionConversionRequest body: (required)
         :return: PositionConversionResponse.
         """
 
-        all_params = ['body', 'authorization', 'api_key', 'async_req', '_return_http_data_only',
+        all_params = ['body', 'authorization', 'api_key', 'source', 'async_req', '_return_http_data_only',
                       '_preload_content', '_request_timeout']  # noqa: E501
 
         params = locals()
@@ -53,6 +55,9 @@ class PositionControllerApi(object):
         if ('api_key' not in params or
                 params['api_key'] is None):
             raise ValueError("Missing the required parameter `api_key` when calling `convert_position`")  # noqa: E501
+        if ('source' not in params or
+                params['source'] is None):
+            raise ValueError("Missing the required parameter `source` when calling `convert_position`")  # noqa: E501
 
         collection_formats = {}
 
@@ -65,6 +70,8 @@ class PositionControllerApi(object):
             header_params['Authorization'] = params['authorization']  # noqa: E501
         if 'api_key' in params:
             header_params['api-key'] = params['api_key']  # noqa: E501
+        if 'source' in params:
+            header_params['source'] = params['source']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -99,25 +106,27 @@ class PositionControllerApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def do_holdings(self, authorization, api_key):  # noqa: E501
+    def do_holdings(self, authorization, api_key, source):  # noqa: E501
         """Holdings  # noqa: E501
 
+        :param source:
         :param api_key:
         :param authorization:
         :return: HoldingResponse.
         """
-        (data) = self.do_holdings_with_http_info(authorization, api_key)  # noqa: E501
+        (data) = self.do_holdings_with_http_info(authorization, api_key, source)  # noqa: E501
         return data
 
-    def do_holdings_with_http_info(self, authorization, api_key):  # noqa: E501
+    def do_holdings_with_http_info(self, authorization, api_key, source):  # noqa: E501
         """Holdings  # noqa: E501
 
+        :param source:
         :param api_key:
         :param authorization:
         :return: HoldingResponse.
         """
 
-        all_params = ['authorization', 'api_key', 'async_req', '_return_http_data_only',
+        all_params = ['authorization', 'api_key', 'source', 'async_req', '_return_http_data_only',
                       '_preload_content', '_request_timeout']  # noqa: E501
 
         params = locals()
@@ -129,6 +138,9 @@ class PositionControllerApi(object):
         if ('api_key' not in params or
                 params['api_key'] is None):
             raise ValueError("Missing the required parameter `api_key` when calling `holdings`")  # noqa: E501
+        if ('source' not in params or
+                params['source'] is None):
+            raise ValueError("Missing the required parameter `source` when calling `holdings`")  # noqa: E501
 
         collection_formats = {}
 
@@ -141,6 +153,8 @@ class PositionControllerApi(object):
             header_params['Authorization'] = params['authorization']  # noqa: E501
         if 'api_key' in params:
             header_params['api-key'] = params['api_key']  # noqa: E501
+        if 'source' in params:
+            header_params['source'] = params['source']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -169,27 +183,29 @@ class PositionControllerApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_position_book(self, type, authorization, api_key):  # noqa: E501
+    def get_position_book(self, type, authorization, api_key, source):  # noqa: E501
         """Position Book  # noqa: E501
 
+        :param source:
         :param type:
         :param api_key:
         :param authorization:
         :return: PositionBookResponse.
         """
-        (data) = self.get_position_book_with_http_info(type, authorization, api_key)  # noqa: E501
+        (data) = self.get_position_book_with_http_info(type, authorization, api_key, source)  # noqa: E501
         return data
 
-    def get_position_book_with_http_info(self, type, authorization, api_key):  # noqa: E501
+    def get_position_book_with_http_info(self, type, authorization, api_key, source):  # noqa: E501
         """Position Book  # noqa: E501
 
+        :param source:
         :param type:
         :param api_key:
         :param authorization:
         :return: PositionBookResponse.
         """
 
-        all_params = ['type', 'authorization', 'api_key', 'async_req', '_return_http_data_only',
+        all_params = ['type', 'authorization', 'api_key', 'source', 'async_req', '_return_http_data_only',
                       '_preload_content', '_request_timeout']  # noqa: E501
 
         params = locals()
@@ -206,6 +222,9 @@ class PositionControllerApi(object):
         if ('type' not in params or
                 params['type'] is None):
             raise ValueError("Missing the required parameter `type` when calling `position_book`")  # noqa: E501
+        if ('source' not in params or
+                params['source'] is None):
+            raise ValueError("Missing the required parameter `source` when calling `position_book`")  # noqa: E501
 
         collection_formats = {}
 
@@ -220,6 +239,8 @@ class PositionControllerApi(object):
             header_params['Authorization'] = params['authorization']  # noqa: E501
         if 'api_key' in params:
             header_params['api-key'] = params['api_key']  # noqa: E501
+        if 'source' in params:
+            header_params['source'] = params['source']  # noqa: E501
 
         form_params = []
         local_var_files = {}

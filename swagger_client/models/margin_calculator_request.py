@@ -1,37 +1,6 @@
-from typing import Optional
-import attr
 from enum import Enum
-
-
-class ExcEnum(str, Enum):
-    NSE = "NSE"
-    BSE = "BSE"
-    NFO = "NFO"
-    BFO = "BFO"
-    CDS = "CDS"
-    BCD = "BCD"
-    MCXSX = "MCXSX"
-    MCX = "MCX"
-    NCO = "NCO"
-    BCO = "BCO"
-    ICEX = "ICEX"
-
-
-class OrdActionEnum(str, Enum):
-    BUY = "BUY"
-    SELL = "SELL"
-    SHORT = "SHORT"
-    NONE = "NONE"
-
-
-class OrdTypeEnum(str, Enum):
-    MARKET = "Market"
-    LIMIT = "Limit"
-    STOP = "Stop"
-    STOP_LOSS = "Stop-loss"
-    SL_M = "SL-M"
-    SL = "SL"
-    NONE = "None"
+from typing import List
+import attr
 
 
 class InstrumentEnum(str, Enum):
@@ -81,6 +50,20 @@ class InstrumentEnum(str, Enum):
     NONE = "NONE"
 
 
+class ExcEnum(str, Enum):
+    NSE = "NSE"
+    BSE = "BSE"
+    NFO = "NFO"
+    BFO = "BFO"
+    CDS = "CDS"
+    BCD = "BCD"
+    MCXSX = "MCXSX"
+    MCX = "MCX"
+    NCO = "NCO"
+    BCO = "BCO"
+    ICEX = "ICEX"
+
+
 class PrdTypeEnum(str, Enum):
     CASH = "CASH"
     MTF = "MTF"
@@ -97,42 +80,59 @@ class PrdTypeEnum(str, Enum):
 
 
 @attr.s(auto_attribs=True)
-class BrokerageChargeRequest:
-    """Class representing a request for brokerage charge calculation."""
-
+class Symbol:
     symbol: str = None
-    ordAction: OrdActionEnum = None
+    netQty: str = None
+    lotSize: str = None
+    instrument: InstrumentEnum = None
+    streamSym: str = None
     excToken: str = None
     exc: ExcEnum = None
-    qty: str = None
-    price: str = None
     prdType: PrdTypeEnum = None
-    triggerPrice: str = None
-    instrument: InstrumentEnum = None
-    ordType: OrdTypeEnum = None
+    brand: List[str] = None
 
     swagger_types = {
         'symbol': 'str',
-        'ordAction': 'OrderActionEnum',
+        'netQty': 'str',
+        'lotSize': 'str',
+        'instrument': 'InstrumentEnum',
+        'streamSym': 'str',
         'excToken': 'str',
         'exc': 'ExcEnum',
-        'qty': 'str',
-        'price': 'str',
-        'prdType': 'ProductEnum',
-        'triggerPrice': 'str',
-        'instrument': 'InstrumentEnum',
-        'ordType': 'OrdTypeEnum',
+        'prdType': 'PrdTypeEnum',
+        'brand': 'list[str]'
     }
 
     attribute_map = {
         'symbol': 'symbol',
-        'ordAction': 'ordAction',
+        'netQty': 'netQty',
+        'lotSize': 'lotSize',
+        'instrument': 'instrument',
+        'streamSym': 'streamSym',
         'excToken': 'excToken',
         'exc': 'exc',
-        'qty': 'qty',
-        'price': 'price',
         'prdType': 'prdType',
-        'triggerPrice': 'triggerPrice',
-        'instrument': 'instrument',
-        'ordType': 'ordType',
+        'brand': 'brand'
+    }
+
+    def to_dict(self):
+        """Return the dictionary representation, omitting None fields."""
+        return {key: value for key, value in attr.asdict(self).items() if value is not None}
+
+    def __repr__(self):
+        """Custom string representation, omitting None fields."""
+        fields = ', '.join(f'{key}={value!r}' for key, value in attr.asdict(self).items() if value is not None)
+        return f"{self.__class__.__name__}({fields})"
+
+
+@attr.s(auto_attribs=True)
+class MarginCalculatorRequest:
+    symbols: List[Symbol] = None
+
+    swagger_types = {
+        'symbols': 'list[Symbol]'
+    }
+
+    attribute_map = {
+        'symbols': 'symbols'
     }

@@ -8,8 +8,13 @@ from __future__ import absolute_import
 from swagger_client.models.login_response import LoginResponse
 from swagger_client.models.login_data import LoginData
 from swagger_client.models.login_request import LoginRequest
-from swagger_client.models.get_profile_request import GetProfileRequest
-from swagger_client.models.get_profile_request import GetProfileRequestData
+from swagger_client.models.data import Data
+from swagger_client.models.verify_otp_request import VerifyOtpRequest
+from swagger_client.models.verify_otp_response import VerifyOtpResponse
+from swagger_client.models.resend_otp_request import ResendOtpRequest
+from swagger_client.models.refresh_token_request import RefreshTokenRequest
+from swagger_client.models.refresh_token_response import RefreshTokenResponse
+from swagger_client.models.success_response import SuccessResponse
 from swagger_client.models.funds_sucess import FundsSuccess
 from swagger_client.models.get_profile_sucsess import GetProfileSuccess
 from swagger_client.models.get_profile_success_data import GetProfileSuccessData
@@ -20,8 +25,8 @@ from swagger_client.models.funds_success_data import FundsView
 from swagger_client.models.history_success import HistorySuccess
 from swagger_client.models.order_trail_request import OrderTrailRequest
 from swagger_client.models.order_trail_response import OrderTrailResponse
-from swagger_client.models.order_trail_data import OrderTrailData
 from swagger_client.models.order_trail_data import OrderTrail
+from swagger_client.models.order_trail_data import OrderTrailData
 from swagger_client.models.order_trail_data import OrderDetails
 from swagger_client.models.intraday_success import IntradaySuccess
 from swagger_client.models.intraday_success_data import IntradaySuccessData
@@ -62,9 +67,10 @@ from swagger_client.models.trade_book_response import TradeBookResponse
 from swagger_client.models.profit_loss_cash_report_request import ProfitLossCashReportRequest
 from swagger_client.models.profit_loss_fo_report_request import ProfitLossFoReportRequest
 from swagger_client.models.intraday_candle_data_request import IntradayCandleDataRequest
-from swagger_client.models.intraday_candle_data_request import IntradayData
 from swagger_client.models.profit_loss_cash_report_request import ReportFilters
 from swagger_client.models.profit_loss_fo_report_request import ReportFilters
 from swagger_client.models.historical_candle_data import HistoricalCandleData
-from swagger_client.models.refresh_token_request import RefreshTokenRequest
-from swagger_client.models.refresh_token_response import RefreshTokenResponse
+from swagger_client.models.margin_calculator_request import MarginCalculatorRequest, Symbol
+from swagger_client.models.margin_calculator_response import MarginCalculatorResponse, MarginCalculatorData
+
+

@@ -75,8 +75,8 @@ class SymbolDto:
         'mtf': 'mtf',
         'multiplier': 'multiplier',
         'freezeQty': 'freezeQty',
-        "tradingSymbol": 'str',
-        'otherExc': 'list[str]'
+        "tradingSymbol": 'tradingSymbol',
+        'otherExc': 'otherExc'
     }
 
     def to_dict(self):

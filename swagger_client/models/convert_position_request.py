@@ -34,6 +34,7 @@ class PrdTypeEnum(str, Enum):
     NRML = "NRML"
     TNC = "TNC"
     DELIVERY = "DELIVERY"
+    CARRYFORWARD = "CARRYFORWARD"
     NONE = "NONE"
 
 
@@ -98,7 +99,6 @@ class ConvertPositionRequest:
     exc: ExcEnum = None
     lotSize: int = None
     instrument: InstrumentEnum = None
-    id: str = None
 
     swagger_types = {
         'type': 'str',
@@ -110,8 +110,7 @@ class ConvertPositionRequest:
         'excToken': 'str',
         'exc': 'ExcEnum',
         'lotSize': 'int',
-        'instrument': 'InstrumentEnum',
-        'id': 'str',
+        'instrument': 'InstrumentEnum'
     }
 
     attribute_map = {
@@ -124,7 +123,6 @@ class ConvertPositionRequest:
         'excToken': 'excToken',
         'exc': 'exc',
         'lotSize': 'lotSize',
-        'instrument': 'instrument',
-        'id': 'id',
+        'instrument': 'instrument'
     }
 
