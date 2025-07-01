@@ -24,15 +24,18 @@ class CancelOrderRequest:
     symbol: str = None
     exc: ExcEnum = None
     ordId: str = None
+    remarks: str = None
 
     swagger_types = {
         'symbol': 'str',
         'exc': 'ExcEnum',
         'ordId': 'str',
+        'remarks': 'str'
     }
 
     attribute_map = {
         'symbol': 'symbol',
         'exc': 'exc',
         'ordId': 'ordId',
+        'remarks': 'remarks'
     }

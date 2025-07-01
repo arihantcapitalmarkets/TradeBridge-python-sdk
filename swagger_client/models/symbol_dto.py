@@ -28,6 +28,7 @@ class SymbolDto:
     freezeQty: str = None
     tradingSymbol: str = None
     otherExc: List[str] = None
+    isWeeklyExpiry: bool = None
 
     swagger_types = {
         'symbol': 'str',
@@ -51,7 +52,8 @@ class SymbolDto:
         'multiplier': 'str',
         'freezeQty': 'str',
         "tradingSymbol": 'str',
-        'otherExc': 'list[str]'
+        'otherExc': 'list[str]',
+        'isWeeklyExpiry': 'bool'
     }
 
     attribute_map = {
@@ -76,7 +78,8 @@ class SymbolDto:
         'multiplier': 'multiplier',
         'freezeQty': 'freezeQty',
         "tradingSymbol": 'tradingSymbol',
-        'otherExc': 'otherExc'
+        'otherExc': 'otherExc',
+        'isWeeklyExpiry': 'isWeeklyExpiry'
     }
 
     def to_dict(self):

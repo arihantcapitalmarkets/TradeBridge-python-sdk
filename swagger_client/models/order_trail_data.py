@@ -79,6 +79,7 @@ class OrderTrail:
     exchOrdId: str = None
     currentOrdStatus: str = None
     tradedQty: int = None
+    orderUpdatedAt: str = None
 
     swagger_types = {
         'limitPrice': 'float',
@@ -96,7 +97,8 @@ class OrderTrail:
         'ordId': 'str',
         'exchOrdId': 'str',
         'currentOrdStatus': 'str',
-        'tradedQty': 'int'
+        'tradedQty': 'int',
+        'orderUpdatedAt': 'str'
     }
 
     attribute_map = {
@@ -115,7 +117,8 @@ class OrderTrail:
         'ordId': 'ordId',
         'exchOrdId': 'exchOrdId',
         'currentOrdStatus': 'currentOrdStatus',
-        'tradedQty': 'tradedQty'
+        'tradedQty': 'tradedQty',
+        'orderUpdatedAt': 'orderUpdatedAt'
     }
 
     def to_dict(self):

@@ -34,6 +34,7 @@ class OrderBook:
     modifiable: bool = None
     cancellable: bool = None
     orderStatus: str = None
+    orderUpdatedAt: str = None
 
     swagger_types = {
         'symbol': SymbolDto,
@@ -65,7 +66,8 @@ class OrderBook:
         'amo': 'bool',
         'modifiable': 'bool',
         'cancellable': 'bool',
-        'orderStatus': 'str'
+        'orderStatus': 'str',
+        'orderUpdatedAt': 'str'
     }
 
     attribute_map = {
@@ -98,7 +100,8 @@ class OrderBook:
         'amo': 'amo',
         'modifiable': 'modifiable',
         'cancellable': 'cancellable',
-        'orderStatus': 'orderStatus'
+        'orderStatus': 'orderStatus',
+        'orderUpdatedAt': 'orderUpdatedAt'
     }
 
     def to_dict(self):
@@ -109,5 +112,3 @@ class OrderBook:
         """Custom string representation, omitting None fields."""
         fields = ', '.join(f'{key}={value!r}' for key, value in attr.asdict(self).items() if value is not None)
         return f"{self.__class__.__name__}({fields})"
-
-

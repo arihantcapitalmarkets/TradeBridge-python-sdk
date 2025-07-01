@@ -126,6 +126,7 @@ class ModifyOrderRequest:
     ord_validity_days: int = None
     exchange_token: str = None
     amo: bool = None
+    remarks: str = None
 
     swagger_types = {
         'trigger_price': 'float',
@@ -145,6 +146,7 @@ class ModifyOrderRequest:
         'ord_validity_days': 'int',
         'exchange_token': 'str',
         'amo': 'bool',
+        'remarks': 'str'
     }
 
     attribute_map = {
@@ -165,4 +167,5 @@ class ModifyOrderRequest:
         'ord_validity_days': 'ordValidityDays',
         'exchange_token': 'exchangeToken',
         'amo': 'amo',
+        'remarks': 'remarks'
     }

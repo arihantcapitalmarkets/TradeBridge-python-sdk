@@ -41,6 +41,7 @@ class ExitOrderRequest:
     boOrdStatus: str = None
     ordId: str = None
     parOrdId: str = None
+    remarks: str = None
 
     swagger_types = {
         'symbol': 'str',
@@ -49,6 +50,7 @@ class ExitOrderRequest:
         'boOrdStatus': 'str',
         'ordId': 'str',
         'parOrdId': 'str',
+        'remarks': 'str'
     }
 
     attribute_map = {
@@ -58,4 +60,5 @@ class ExitOrderRequest:
         'boOrdStatus': 'boOrdStatus',
         'ordId': 'ordId',
         'parOrdId': 'parOrdId',
+        'remarks': 'remarks'
     }

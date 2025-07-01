@@ -1,6 +1,6 @@
 # swagger_client.LoginApi
 
-All URIs are relative to *https://umsxtend.blinkx.in/auth/api/v1*
+All URIs are relative to *https://tradebridge.arihantplus.com/auth-services/api/auth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

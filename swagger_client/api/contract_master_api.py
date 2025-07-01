@@ -13,28 +13,15 @@ class ContractMasterApi(object):
         self.api_client = api_client
 
     # Contract Master
-    def contract_master(self, authorization, api_key, source, exch):  # noqa: E501
-        (data) = self.contract_master_with_http_info(authorization, api_key, source, exch)  # noqa: E501
+    def contract_master(self, exch):  # noqa: E501
+        (data) = self.contract_master_with_http_info(exch)  # noqa: E501
         return data
 
-    def contract_master_with_http_info(self, authorization, api_key, source, exch):  # noqa: E501
-        all_params = ['authorization', 'api_key', 'source', 'exch', 'async_req', '_return_http_data_only', '_preload_content',
+    def contract_master_with_http_info(self, exch):  # noqa: E501
+        all_params = ['exch', 'async_req', '_return_http_data_only', '_preload_content',
                       '_request_timeout']  # noqa: E501
 
         params = locals()
-
-        # verify the required parameter 'authorization' is set
-        if ('authorization' not in params or
-                params['authorization'] is None):
-            raise ValueError("Missing the required parameter `authorization` when calling `contract_master`")  # noqa: E501
-        # verify the required parameter 'api_key' is set
-        if ('api_key' not in params or
-                params['api_key'] is None):
-            raise ValueError("Missing the required parameter `api_key` when calling `contract_master`")  # noqa: E501
-
-        if ('source' not in params or
-                params['source'] is None):
-            raise ValueError("Missing the required parameter `source` when calling `contract_master`")  # noqa: E501
 
         if ('exch' not in params or
                 params['exch'] is None):
@@ -48,13 +35,6 @@ class ContractMasterApi(object):
         query_params['exch'] = params['exch']
 
         header_params = {}
-        if 'authorization' in params:
-            header_params['Authorization'] = params['authorization']  # noqa: E501
-        if 'api_key' in params:
-            header_params['api-key'] = params['api_key']  # noqa: E501
-        if 'source' in params:
-            header_params["source"] = params['source']
-
         form_params = []
         local_var_files = {}
 

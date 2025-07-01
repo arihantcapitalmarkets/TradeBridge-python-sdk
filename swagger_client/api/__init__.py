@@ -11,6 +11,6 @@ from swagger_client.api.profit_loss_report_api import ProfitLossReportApi
 from swagger_client.api.order_controller_api import OrderControllerApi
 from swagger_client.api.position_controller_api import PositionControllerApi
 from swagger_client.api.profit_loss_report_api import ProfitLossReportApi
-from swagger_client.api.trade_book_api import TradeBookApi
+from swagger_client.api.portfolio_api import PortfolioApi
 from swagger_client.api.contract_master_api import ContractMasterApi
 from swagger_client.api.margin_calculator_api import MarginCalculatorApi

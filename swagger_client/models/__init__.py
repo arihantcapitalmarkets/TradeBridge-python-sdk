@@ -58,12 +58,9 @@ from swagger_client.models.holding_response import HoldingResponse
 from swagger_client.models.order_book import OrderBook
 from swagger_client.models.order_book_data import OrderBookData
 from swagger_client.models.order_book_response import OrderBookResponse
-from swagger_client.models.convert_position_request import ConvertPositionRequest
+from swagger_client.models.position_conversion_request import PositionConversionRequest
 from swagger_client.models.position_conversion_data import PositionConversionData
 from swagger_client.models.position_conversion_response import PositionConversionResponse
-from swagger_client.models.trade_book import TradeBook
-from swagger_client.models.trade_book_data import TradeBookData
-from swagger_client.models.trade_book_response import TradeBookResponse
 from swagger_client.models.profit_loss_cash_report_request import ProfitLossCashReportRequest
 from swagger_client.models.profit_loss_fo_report_request import ProfitLossFoReportRequest
 from swagger_client.models.intraday_candle_data_request import IntradayCandleDataRequest
@@ -72,5 +69,7 @@ from swagger_client.models.profit_loss_fo_report_request import ReportFilters
 from swagger_client.models.historical_candle_data import HistoricalCandleData
 from swagger_client.models.margin_calculator_request import MarginCalculatorRequest, Symbol
 from swagger_client.models.margin_calculator_response import MarginCalculatorResponse, MarginCalculatorData
+from swagger_client.models.check_margin_request import CheckMarginRequest
+from swagger_client.models.check_margin_response import CheckMarginResponse, CheckMarginData
 
 

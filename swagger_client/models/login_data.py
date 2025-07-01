@@ -3,20 +3,26 @@ import attr
 
 @attr.s(auto_attribs=True, repr=False)
 class LoginData:
+    msxtendInfo: str = None
     message: str = None
     txnId: str = None
     otpExpiryTime: str = None
+    twoFAType: str = None
 
     swagger_types = {
+        'msxtendInfo': 'str',
         'message': 'str',
         'txnId': 'str',
-        'otpExpiryTime': 'str'
+        'otpExpiryTime': 'str',
+        'twoFAType': 'str'
     }
 
     attribute_map = {
+        'msxtendInfo': 'msxtendInfo',
         'message': 'message',
         'txnId': 'txnId',
-        'otpExpiryTime': 'otpExpiryTime'
+        'otpExpiryTime': 'otpExpiryTime',
+        'twoFAType': 'twoFAType'
     }
 
     def to_dict(self):

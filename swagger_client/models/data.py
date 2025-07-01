@@ -4,6 +4,7 @@ from datetime import datetime
 
 @attr.s(auto_attribs=True, repr=False)
 class Data:
+    msxtendInfo: str = None
     accessToken: str = None
     expiryTime: str = None
     ddpi: bool = None
@@ -18,6 +19,7 @@ class Data:
     tokenExpiry: datetime = None
 
     swagger_types = {
+        'msxtendInfo': str,
         'accessToken': str,
         'refreshToken': str,
         'expiryTime': str,
@@ -33,6 +35,7 @@ class Data:
     }
 
     attribute_map = {
+        'msxtendInfo': 'msxtendInfo',
         'accessToken': 'accessToken',
         'refreshToken': 'refreshToken',
         'expiryTime': 'expiryTime',

@@ -9,7 +9,7 @@ from swagger_client.api.profit_loss_report_api import ProfitLossReportApi
 from swagger_client.api.order_controller_api import OrderControllerApi
 from swagger_client.api.position_controller_api import PositionControllerApi
 from swagger_client.api.profit_loss_report_api import ProfitLossReportApi
-from swagger_client.api.trade_book_api import TradeBookApi
+from swagger_client.api.portfolio_api import PortfolioApi
 from swagger_client.api.contract_master_api import ContractMasterApi
 from swagger_client.api.margin_calculator_api import MarginCalculatorApi
 
@@ -66,12 +66,9 @@ from swagger_client.models.holding_response import HoldingResponse
 from swagger_client.models.order_book import OrderBook
 from swagger_client.models.order_book_data import OrderBookData
 from swagger_client.models.order_book_response import OrderBookResponse
-from swagger_client.models.convert_position_request import ConvertPositionRequest
+from swagger_client.models.position_conversion_request import PositionConversionRequest
 from swagger_client.models.position_conversion_data import PositionConversionData
 from swagger_client.models.position_conversion_response import PositionConversionResponse
-from swagger_client.models.trade_book import TradeBook
-from swagger_client.models.trade_book_data import TradeBookData
-from swagger_client.models.trade_book_response import TradeBookResponse
 from swagger_client.models.order_trail_request import OrderTrailRequest
 from swagger_client.models.order_trail_response import OrderTrailResponse
 from swagger_client.models.order_trail_data import OrderTrailData
@@ -86,3 +83,5 @@ from swagger_client.models.profit_loss_fo_report_request import ReportFilters
 from swagger_client.models.symbol_dto import SymbolDto
 from swagger_client.models.margin_calculator_request import MarginCalculatorRequest, Symbol
 from swagger_client.models.margin_calculator_response import MarginCalculatorResponse, MarginCalculatorData
+from swagger_client.models.check_margin_request import CheckMarginRequest
+from swagger_client.models.check_margin_response import CheckMarginResponse, CheckMarginData

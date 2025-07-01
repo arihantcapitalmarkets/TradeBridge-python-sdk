@@ -23,26 +23,6 @@ class OrdActionEnum(str, Enum):
     NONE = "NONE"
 
 
-class OrdValidityEnum(str, Enum):
-    DAY = "DAY"
-    IOC = "IOC"
-    GMT = "GMT"
-    GTC = "GTC"
-    AMO = "AMO"
-    GTD = "GTD"
-    NONE = "NONE"
-
-
-class OrdTypeEnum(str, Enum):
-    MARKET = "Market"
-    LIMIT = "Limit"
-    STOP = "Stop"
-    STOP_LOSS = "Stop-loss"
-    SL_M = "SL-M"
-    SL = "SL"
-    NONE = "None"
-
-
 class PrdTypeEnum(str, Enum):
     CASH = "CASH"
     MTF = "MTF"
@@ -106,69 +86,43 @@ class InstrumentEnum(str, Enum):
 
 
 @attr.s(auto_attribs=True)
-class PlaceOrderRequest:
-    """Class representing a request to place an order."""
+class PositionConversionRequest:
+    """Class representing a position conversion request."""
 
-    symbol: str = None
-    exc: ExcEnum = None
+    type: str = None
     ordAction: OrdActionEnum = None
-    ordValidity: OrdValidityEnum = None
-    ordType: OrdTypeEnum = None
     prdType: PrdTypeEnum = None
+    toPrdType: PrdTypeEnum = None
     qty: int = None
-    disQty: int = None
-    lotSize: int = None
-    triggerPrice: float = None
-    instrument: InstrumentEnum = None
-    limitPrice: float = None
-    amo: bool = None
-    build: str = None
+    symbol: str = None
     excToken: str = None
-    boStpLoss: float = None
-    boTgtPrice: float = None
-    trailingSL: float = None
-    remarks: str = None
+    exc: ExcEnum = None
+    lotSize: int = None
+    instrument: InstrumentEnum = None
 
     swagger_types = {
-        'symbol': 'str',
-        'exc': 'ExcEnum',
+        'type': 'str',
         'ordAction': 'OrdActionEnum',
-        'ordValidity': 'OrdValidityEnum',
-        'ordType': 'OrdTypeEnum',
         'prdType': 'PrdTypeEnum',
+        'toPrdType': 'PrdTypeEnum',
         'qty': 'int',
-        'disQty': 'int',
-        'lotSize': 'int',
-        'triggerPrice': 'float',
-        'instrument': 'InstrumentEnum',
-        'limitPrice': 'float',
-        'amo': 'bool',
-        'build': 'str',
+        'symbol': 'str',
         'excToken': 'str',
-        'boStpLoss': 'float',
-        'boTgtPrice': 'float',
-        'trailingSL': 'float',
-        'remarks': 'str'
+        'exc': 'ExcEnum',
+        'lotSize': 'int',
+        'instrument': 'InstrumentEnum'
     }
 
     attribute_map = {
-        'symbol': 'symbol',
-        'exc': 'exc',
+        'type': 'type',
         'ordAction': 'ordAction',
-        'ordValidity': 'ordValidity',
-        'ordType': 'ordType',
         'prdType': 'prdType',
+        'toPrdType': 'toPrdType',
         'qty': 'qty',
-        'disQty': 'disQty',
-        'lotSize': 'lotSize',
-        'triggerPrice': 'triggerPrice',
-        'instrument': 'instrument',
-        'limitPrice': 'limitPrice',
-        'amo': 'amo',
-        'build': 'build',
+        'symbol': 'symbol',
         'excToken': 'excToken',
-        'boStpLoss': 'boStpLoss',
-        'boTgtPrice': 'boTgtPrice',
-        'trailingSL': 'trailingSL',
-        'remarks': 'remarks'
+        'exc': 'exc',
+        'lotSize': 'lotSize',
+        'instrument': 'instrument'
     }
+

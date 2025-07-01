@@ -11,7 +11,6 @@ class Holding:
     usedQty: int= None
     btst : int = None
     pledgeQty: int = None
-    prdType : str = None
     avgPrice: float = None
     invested: float = None
     marketValue: float = None
@@ -21,6 +20,7 @@ class Holding:
     pledgeable: bool = None
     closePrice: float = None
     freeQty: int = None
+    currentValue: float = None
 
     swagger_types = {
         'symbol': SymbolDto,
@@ -30,7 +30,6 @@ class Holding:
         'usedQty': 'int',
         'btst': 'int',
         'pledgeQty': 'int',
-        'prdType': 'str',
         'avgPrice': 'float',
         'invested': 'float',
         'marketValue': 'float',
@@ -39,7 +38,8 @@ class Holding:
         'haircut': 'float',
         'pledgeable': 'bool',
         'closePrice': 'float',
-        'freeQty': 'int'
+        'freeQty': 'int',
+        'currentValue': 'float'
     }
 
     attribute_map = {
@@ -50,7 +50,6 @@ class Holding:
         'usedQty': 'usedQty',
         'btst': 'btst',
         'pledgeQty': 'pledgeQty',
-        'prdType': 'prdType',
         'avgPrice': 'avgPrice',
         'invested': 'invested',
         'marketValue': 'marketValue',
@@ -59,7 +58,8 @@ class Holding:
         'haircut': 'haircut',
         'pledgeable': 'pledgeable',
         'closePrice': 'closePrice',
-        'freeQty': 'freeQty'
+        'freeQty': 'freeQty',
+        'currentValue': 'currentValue'
     }
 
     def to_dict(self):

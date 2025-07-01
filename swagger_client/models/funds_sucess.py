@@ -1,5 +1,3 @@
-from typing import Any
-
 import attr
 from swagger_client.models.funds_success_data import FundsSuccessData
 

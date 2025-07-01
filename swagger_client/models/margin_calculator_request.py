@@ -82,8 +82,8 @@ class PrdTypeEnum(str, Enum):
 @attr.s(auto_attribs=True)
 class Symbol:
     symbol: str = None
-    netQty: str = None
-    lotSize: str = None
+    netQty: int = None
+    lotSize: int = None
     instrument: InstrumentEnum = None
     streamSym: str = None
     excToken: str = None
@@ -93,8 +93,8 @@ class Symbol:
 
     swagger_types = {
         'symbol': 'str',
-        'netQty': 'str',
-        'lotSize': 'str',
+        'netQty': 'int',
+        'lotSize': 'int',
         'instrument': 'InstrumentEnum',
         'streamSym': 'str',
         'excToken': 'str',

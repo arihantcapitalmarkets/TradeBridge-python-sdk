@@ -125,6 +125,7 @@ class FundsView:
         'remarks': 'remarks',
         'dirctColatrl': 'dirctColatrl'
     }
+
     def to_dict(self):
         """Return the dictionary representation, omitting None fields."""
         return {key: value for key, value in attr.asdict(self).items() if value is not None}

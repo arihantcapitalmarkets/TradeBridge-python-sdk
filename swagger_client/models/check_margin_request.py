@@ -106,8 +106,7 @@ class InstrumentEnum(str, Enum):
 
 
 @attr.s(auto_attribs=True)
-class PlaceOrderRequest:
-    """Class representing a request to place an order."""
+class CheckMarginRequest:
 
     symbol: str = None
     exc: ExcEnum = None
@@ -116,18 +115,14 @@ class PlaceOrderRequest:
     ordType: OrdTypeEnum = None
     prdType: PrdTypeEnum = None
     qty: int = None
-    disQty: int = None
     lotSize: int = None
     triggerPrice: float = None
     instrument: InstrumentEnum = None
     limitPrice: float = None
     amo: bool = None
-    build: str = None
     excToken: str = None
     boStpLoss: float = None
     boTgtPrice: float = None
-    trailingSL: float = None
-    remarks: str = None
 
     swagger_types = {
         'symbol': 'str',
@@ -137,18 +132,14 @@ class PlaceOrderRequest:
         'ordType': 'OrdTypeEnum',
         'prdType': 'PrdTypeEnum',
         'qty': 'int',
-        'disQty': 'int',
         'lotSize': 'int',
         'triggerPrice': 'float',
         'instrument': 'InstrumentEnum',
         'limitPrice': 'float',
         'amo': 'bool',
-        'build': 'str',
         'excToken': 'str',
         'boStpLoss': 'float',
-        'boTgtPrice': 'float',
-        'trailingSL': 'float',
-        'remarks': 'str'
+        'boTgtPrice': 'float'
     }
 
     attribute_map = {
@@ -159,16 +150,12 @@ class PlaceOrderRequest:
         'ordType': 'ordType',
         'prdType': 'prdType',
         'qty': 'qty',
-        'disQty': 'disQty',
         'lotSize': 'lotSize',
         'triggerPrice': 'triggerPrice',
         'instrument': 'instrument',
         'limitPrice': 'limitPrice',
         'amo': 'amo',
-        'build': 'build',
         'excToken': 'excToken',
         'boStpLoss': 'boStpLoss',
-        'boTgtPrice': 'boTgtPrice',
-        'trailingSL': 'trailingSL',
-        'remarks': 'remarks'
+        'boTgtPrice': 'boTgtPrice'
     }

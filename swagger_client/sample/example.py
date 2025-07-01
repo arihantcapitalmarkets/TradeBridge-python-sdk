@@ -1,4 +1,5 @@
 from swagger_client.models.margin_calculator_request import MarginCalculatorRequest
+from swagger_client.models.check_margin_request import (CheckMarginRequest, OrdActionEnum, OrdValidityEnum, OrdTypeEnum, PrdTypeEnum, InstrumentEnum, ExcEnum)
 from swagger_client.models.margin_calculator_request import Symbol
 from swagger_client.models.verify_otp_request import VerifyOtpRequest
 from swagger_client.models.resend_otp_request import ResendOtpRequest
@@ -9,7 +10,7 @@ from swagger_client.models.refresh_token_request import RefreshTokenRequest
 from swagger_client.models.intraday_candle_data_request import IntradayCandleDataRequest
 from swagger_client.models.profit_loss_fo_report_request import ProfitLossFoReportRequest
 from swagger_client.models.profit_loss_cash_report_request import ProfitLossCashReportRequest, ReportFilters
-from swagger_client.models.convert_position_request import ConvertPositionRequest
+from swagger_client.models.position_conversion_request import PositionConversionRequest
 from swagger_client.models.brokerage_charges_request import BrokerageChargeRequest
 from swagger_client.models.exit_order_request import ExitOrderRequest
 from swagger_client.models.cancel_order_request import CancelOrderRequest
@@ -26,66 +27,86 @@ from swagger_client.models.login_request import LoginRequest
 from swagger_client.api import OrderControllerApi
 from swagger_client.api import PositionControllerApi
 from swagger_client.api import ProfitLossReportApi
-from swagger_client.api import TradeBookApi
+from swagger_client.api import PortfolioApi
 from swagger_client.api import MarginCalculatorApi
 import attrs
 
-api_key = "r4AGcBE9by1ZmDGLL4"
+api_key = "iGD1BESV8CXS71NeYj"
 source = "SDK"
-accessToken = "eyJhbGciOiJIUzUxMiJ9.eyJhcHAtaWQiOiJlOGM1ZDEwYy1mODNmLTRkNjMtYjIxMi0zZGEyMTkxMjM0MjIiLCJsaW1pdCI6IkJBU0lDIiwic3ViIjoiTkVTVDgwMDMiLCJpYXQiOjE3Mzg3Mzk2NTUsImV4cCI6MTczODc2ODQ1NX0.K3NRZjle_QYvvaXi9cpsgS4iontWuvqQOtf7SEFhhBaf5XcxOEMbDkpLJ5z7uJAIyP_TmtO66ILbK6Gvzi9cLA"
+accessToken = "eyJhbGciOiJIUzUxMiJ9.eyJhcHAtaWQiOiIwMTNkODI3Zi0xMjllLTRiNTMtYWM0Ni1lMzU2MjVmMDNmZjkiLCJsaW1pdCI6IkJBU0lDIiwic291cmNlIjoiU0RLIiwic3ViIjoiTkVTVDgwMDMiLCJpYXQiOjE3NDcxMTk1MzksImV4cCI6MTc0NzE0ODMzOX0.cjHursNuTJRpqMK6vWhYKnLvrWgjuzp0m_Mcti5lxJhBWaXKCWMAsbX6dwDTNTtZaotSvgAqr5XFCwfCfKqe0A"
 #
 # Login
 loginAPI = LoginApi()
-login_body = LoginRequest(userId="NEST8003",
-                          password="Abcd@12342")
+login_body = LoginRequest(mobNo="9642229195",
+                          password="Abcd@1818")
 login_response_body = loginAPI.login_normal_login_post(login_body, api_key, source)[0]
 #
 # # Verify-Otp
 # verifyOtpAPI = LoginApi()
 # verify_otp_body = VerifyOtpRequest(userId="nest8003",
-#                                    txnId="be5ace22-21b4-4ea7-9d14-ab9e7ec8cfe5",
-#                                    otp="0267")
+#                                    txnId="a7f9483b-ba57-458f-8a6c-be3bda8393e4",
+#                                    otp="2403")
 # verify_otp_response_body = verifyOtpAPI.verify_otp(verify_otp_body, api_key, source)[0]
-#
-# # # Access the accessToken and refreshToken
+
+# # Access the accessToken and refreshToken
 # # accessToken = attrs.asdict(verify_otp_response_body)["data"]["accessToken"]
 # refreshToken = attrs.asdict(verify_otp_response_body)["data"]["refreshToken"]
 
-# # Resend-Otp
+# Resend-Otp
 # resendOtpAPI = LoginApi()
 # resend_otp_body = ResendOtpRequest(userId="nest8003",
-#                                    txnId="be5ace22-21b4-4ea7-9d14-ab9e7ec8cfe5")
+#                                    txnId="485d150b-690e-4203-8501-a75264e2fc45")
 # resend_otp_response_body = resendOtpAPI.resend_otp(resend_otp_body, api_key, source)[0]
 # #
 # # Refresh Token
 # refreshTokenAPI = LoginApi()
 # refresh_token_body = RefreshTokenRequest(userId="nest8003",
-#                                          refreshToken="3cbb8e2008754ac39ff451960af915b9e10754edc50c4e2bb4ea150f70f0646c")
+#                                          refreshToken="4117960980fa46338ac2e6ee66cb77daf5105b88c7954dbba13f0977549964ae")
 # refresh_token_response_body = refreshTokenAPI.refresh_token(refresh_token_body, api_key, source)[0]
-#
-# # Contract Master
-# contractMasterAPI = ContractMasterApi()
-# exch = 'NSE'
-# contract_master_response_body = contractMasterAPI.contract_master(accessToken, api_key, source, exch)[0]
 #
 # # Logout
 # logoutAPI = LoginApi()
 # Logout_response_body = logoutAPI.logout(accessToken, api_key, source)[0]
-
-# #
+#
+# # Contract Master
+# contractMasterAPI = ContractMasterApi()
+# exch = 'NSE'
+# contract_master_response_body = contractMasterAPI.contract_master(exch)[0]
+#
 # # Get profile
 # profileAPI = LoginProfileApi()
 # profile_response_body = profileAPI.get_profile(accessToken, api_key, source)[0]
-#
+# #
 # # Get Funds
 # fundsAPI = FundsApi()
 # funds_response_body = fundsAPI.fund_view(accessToken, api_key, source)[0]
+#
+# # Check Margin
+# fundsAPI = FundsApi()
+# check_margin_body = body = CheckMarginRequest(
+#     symbol="TCS-EQ",
+#     excToken="11536",
+#     ordAction=OrdActionEnum.BUY,
+#     ordValidity=OrdValidityEnum.DAY,
+#     ordType=OrdTypeEnum.LIMIT,
+#     prdType=PrdTypeEnum.DELIVERY,
+#     qty=5,
+#     triggerPrice=0.0,
+#     limitPrice=3200,
+#     instrument=InstrumentEnum.STK,
+#     exc=ExcEnum.NSE,
+#     lotSize=1,
+#     amo=False,
+#     boStpLoss=0.0,
+#     boTgtPrice=0.0
+# )
+# check_margin_response = fundsAPI.check_margin(check_margin_body, accessToken, api_key, source)[0]
 # #
 # # Place Order
 # orderControllerAPI = OrderControllerApi()
 # place_order_body = body = PlaceOrderRequest(
 #     symbol="TCS-EQ",
-#     excToken="532540",
+#     excToken="11536",
 #     ordAction=OrdActionEnum.BUY,
 #     ordValidity=OrdValidityEnum.DAY,
 #     ordType=OrdTypeEnum.MARKET,
@@ -99,9 +120,10 @@ login_response_body = loginAPI.login_normal_login_post(login_body, api_key, sour
 #     lotSize=1,
 #     amo=False,
 #     build="MOB",
-#     boStpLoss=0,
-#     boTgtPrice=0,
-#     trailingSL=0.0
+#     boStpLoss=0.0,
+#     boTgtPrice=0.0,
+#     trailingSL=0.0,
+#     remarks="place-order"
 # )
 #
 # latitude = "5.66"
@@ -109,7 +131,7 @@ login_response_body = loginAPI.login_normal_login_post(login_body, api_key, sour
 # place_order_response = \
 #     orderControllerAPI.place_order(place_order_body, accessToken, api_key, latitude, longitude, source)[0]
 # orderId = attrs.asdict(place_order_response)['data']['ordId']
-
+#
 # # Modify Order
 # orderControllerAPI = OrderControllerApi()
 # modify_order_body = ModifyOrderRequest(
@@ -129,7 +151,8 @@ login_response_body = loginAPI.login_normal_login_post(login_body, api_key, sour
 #     traded_qty=0,
 #     ord_validity_days=0,
 #     exchange_token="13528",
-#     amo=False
+#     amo=False,
+#     remarks="modify-order"
 # )
 # latitude = "4"
 # longitude = "9.888"
@@ -141,13 +164,14 @@ login_response_body = loginAPI.login_normal_login_post(login_body, api_key, sour
 # cancel_order_body = CancelOrderRequest(
 #     symbol="TCS-EQ",
 #     ordId=orderId,
-#     exc=ExcEnum.NSE
+#     exc=ExcEnum.NSE,
+#     remarks="cancel-order"
 # )
 # latitude = ""
 # longitude = "0.77"
 # cancel_order_response = \
 #     orderControllerAPI.cancel_order(cancel_order_body, accessToken, api_key, latitude, longitude, source)[0]
-
+#
 # # Exit Order
 # orderControllerAPI = OrderControllerApi()
 # exit_order_body = ExitOrderRequest(symbol="TCS-EQ",
@@ -155,7 +179,8 @@ login_response_body = loginAPI.login_normal_login_post(login_body, api_key, sour
 #                                    ordId=orderId,
 #                                    parOrdId=orderId,
 #                                    exc=ExcEnum.NSE,
-#                                    prdType=PrdTypeEnum.COVER_ORDER
+#                                    prdType=PrdTypeEnum.COVER_ORDER,
+#                                    remarks="exit-order"
 #                                    )
 # latitude = "3.22"
 # longitude = "1.6666"
@@ -184,8 +209,8 @@ login_response_body = loginAPI.login_normal_login_post(login_body, api_key, sour
 # margin_calculator_body = MarginCalculatorRequest(symbols=[
 #     Symbol(
 #         symbol="BANKNIFTY25MARFUT",
-#         netQty="1",
-#         lotSize="1",
+#         netQty=1,
+#         lotSize=1,
 #         instrument=InstrumentEnum.FUTIDX,
 #         streamSym="58958_NFO",
 #         excToken="58958",
@@ -197,30 +222,26 @@ login_response_body = loginAPI.login_normal_login_post(login_body, api_key, sour
 # margin_calculator_response_body = (
 #     marginCalculatorAPI.margin_calculator(margin_calculator_body, accessToken, api_key, source))[0]
 #
-# # Trade Book
-# tradeAPI = TradeBookApi()
-# trade_book_response = tradeAPI.trade_book(accessToken, api_key, source)[0]
-#
 # # OrderBook
-# tradeAPI = TradeBookApi()
-# order_book_response = tradeAPI.get_order_book(accessToken, api_key, source)[0]
+# portfolioApi = PortfolioApi()
+# order_book_response = portfolioApi.get_order_book(accessToken, api_key, source)[0]
 #
 # # Order Trail
-# tradeAPI = TradeBookApi()
+# portfolioApi = PortfolioApi()
 # order_trail_body = OrderTrailRequest(
 #     instrument=InstrumentEnum.STK,
-#     ordId='250205000000026'
+#     ordId='250513000000024'
 # )
-# order_trail_response = tradeAPI.order_trail(order_trail_body, accessToken, api_key, source)[0]
+# order_trail_response = portfolioApi.order_trail(order_trail_body, accessToken, api_key, source)[0]
 #
 # # Order Status
-# tradeAPI = TradeBookApi()
+# portfolioApi = PortfolioApi()
 # order_status_body = OrderTrailRequest(
 #     instrument=InstrumentEnum.STK,
-#     ordId="250205000000026"
+#     ordId="250513000000024"
 # )
-# order_status_response = tradeAPI.order_status(order_status_body, accessToken, api_key, source)[0]
-# #
+# order_status_response = portfolioApi.order_status(order_status_body, accessToken, api_key, source)[0]
+#
 # # Position Book
 # positionControllerAPI = PositionControllerApi()
 # position_book_response = positionControllerAPI.get_position_book("net", accessToken, api_key, source)[0]
@@ -231,7 +252,7 @@ login_response_body = loginAPI.login_normal_login_post(login_body, api_key, sour
 #
 # # ConvertPosition
 # positionControllerAPI = PositionControllerApi()
-# convert_position_body = ConvertPositionRequest(
+# convert_position_body = PositionConversionRequest(
 #     exc=ExcEnum.NSE,
 #     excToken="11536",
 #     instrument=InstrumentEnum.STK,
@@ -270,8 +291,8 @@ login_response_body = loginAPI.login_normal_login_post(login_body, api_key, sour
 # historical_data_response = chartAPI.historical_data(accessToken, api_key, source,
 #                                                     'TCS-EQ',
 #                                                     '1day',
-#                                                     '2023-02-01T17:55:00.000',
-#                                                     '2024-02-01T17:55:00.000',
+#                                                     '2025-04-04T17:55:00.000',
+#                                                     '2025-04-04T17:55:00.000',
 #                                                     'STK',
 #                                                     'NSE',
 #                                                     '12193_NSE')[0]
@@ -284,8 +305,8 @@ login_response_body = loginAPI.login_normal_login_post(login_body, api_key, sour
 #     resolution="1day",
 #     exc=ExcEnum.NSE,
 #     instrument=InstrumentEnum.STK,
-#     startTime="2025-01-30T00:00:00.000",
-#     endTime="2025-01-30T15:00:00.000"
+#     startTime="2025-04-04T00:00:00.000",
+#     endTime="2025-04-04T15:00:00.000"
 # )
 # intraday_response = chartAPI.intraday(intraday_body, accessToken, api_key, source)[0]
 
@@ -294,17 +315,17 @@ if __name__ == "__main__":
     # print("VERIFY_OTP_RESPONSE: \n", verify_otp_response_body, "\n\n")
     # print("RESEND_OTP_RESPONSE: \n", resend_otp_response_body, "\n\n")
     # print("REFRESH_TOKEN_RESPONSE: \n", refresh_token_response_body, "\n\n")
-    # print("CONTRACT_MASTER_RESPONSE: \n", contract_master_response_body, "\n\n")
     # print("LOGOUT_RESPONSE: \n", Logout_response_body, "\n\n")
+    # print("CONTRACT_MASTER_RESPONSE: \n", contract_master_response_body, "\n\n")
     # print("PROFILE_RESPONSE: \n", profile_response_body, "\n\n")
     # print("FUNDS_RESPONSE: \n", funds_response_body, "\n\n")
+    # print("CHECK_MARGIN_RESPONSE: \n", check_margin_response, "\n\n")
     # print("PLACE_ORDER_RESPONSE: \n", place_order_response, "\n\n")
     # print("MODIFY_ORDER_RESPONSE: \n", modify_order_response, "\n\n")
     # print("CANCEL_ORDER_RESPONSE: \n", cancel_order_response, "\n\n")
     # print("EXIT_ORDER_RESPONSE: \n", exit_order_response, "\n\n")
     # print("BROKERAGE_RESPONSE: \n", brokerage_response_body, "\n\n")
     # print("MARGIN_CACULATOR_RESPONSE: \n", margin_calculator_response_body, "\n\n")
-    # print("TRADE_BOOK_RESPONSE: \n", trade_book_response, "\n\n")
     # print("ORDER_BOOK_RESPONSE: \n", order_book_response, "\n\n")
     # print("ORDER_TRAIL_RESPONSE: \n", order_trail_response, "\n\n")
     # print("ORDER_STATUS_RESPONSE: \n", order_status_response, "\n\n")
