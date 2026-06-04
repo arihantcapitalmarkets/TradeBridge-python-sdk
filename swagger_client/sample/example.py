@@ -35,9 +35,9 @@ from swagger_client.enums.ord_validity_enum import OrdValidityEnum
 from swagger_client.enums.prd_type_enum import PrdTypeEnum
 import attrs
 
-api_key = "1QSas8QwiaZ0z8JbOe"
+api_key = "1QSa*******z8JbOe"
 source = "SDK"
-accessToken = "eyJhbGciOiJIUzUxMiJ9.eyJhcHAtaWQiOiI4ZmQ5ZDYxMy0xNDZlLTQwMmQtODlmZS1kYjY0ZThlMTc5OGMiLCJsaW1pdCI6IkFQMDEwMjI5NiIsInNvdXJjZSI6IlNESyIsInN1YiI6IkFQMDEwMjI5NiIsImlhdCI6MTc3ODgyMDM4MywiZXhwIjoxNzc4ODQ5MTgzfQ.7gF6s4IK6IR58JL0F4zjNW5DP8tv7CULiJlmUNjI0DNylVLIIpwB33OoyVInpmMk3psEmhP1xRRH6k-oPJg2Bw"
+accessToken = "eyJhbGciOiJIUzUxMiJ9**************oyVInpmMk3psEmhP1xRRH6k-oPJg2Bw"
 
 
 # Login
