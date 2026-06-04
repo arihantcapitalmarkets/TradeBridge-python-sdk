@@ -19,7 +19,7 @@ class PnlCash:
 
     swagger_types = {
         'sellVal': 'str',
-        'sym': SymbolDto,
+        'sym': 'SymbolDto',
         'otherCharges': 'str',
         'buyDate': 'str',
         'sellAvg': 'str',
@@ -54,9 +54,8 @@ class PnlCash:
         fields = ', '.join(f'{key}={value!r}' for key, value in attr.asdict(self).items() if value is not None)
         return f"{self.__class__.__name__}({fields})"
 
-
 @attr.s(auto_attribs=True, repr=False)
-class BasicDtls:
+class CashBasicDtls:
     Client_ID: str = None
     To: str = None
     Date: str = None
@@ -82,17 +81,16 @@ class BasicDtls:
         fields = ', '.join(f'{key}={value!r}' for key, value in attr.asdict(self).items() if value is not None)
         return f"{self.__class__.__name__}({fields})"
 
-
 @attr.s(auto_attribs=True)
 class ProfitLossCashSuccessData:
     pnlCash: List[PnlCash] = None
     charges: str = None
-    basicDtls: BasicDtls = None
+    basicDtls: CashBasicDtls = None
 
     swagger_types = {
         'pnlCash': 'list[PnlCash]',
         'charges': 'str',
-        'basicDtls': 'BasicDtls'
+        'basicDtls': 'CashBasicDtls'
     }
 
     attribute_map = {
@@ -100,3 +98,12 @@ class ProfitLossCashSuccessData:
         'charges': 'charges',
         'basicDtls': 'basicDtls'
     }
+
+    def to_dict(self):
+        """Return the dictionary representation, omitting None fields."""
+        return {key: value for key, value in attr.asdict(self).items() if value is not None}
+
+    def __repr__(self):
+        """Custom string representation, omitting None fields."""
+        fields = ', '.join(f'{key}={value!r}' for key, value in attr.asdict(self).items() if value is not None)
+        return f"{self.__class__.__name__}({fields})"

@@ -50,37 +50,58 @@ class Data:
         'tokenExpiry': 'tokenExpiry'
     }
 
+    # ✅ Auto-convert string → datetime after object creation
+    def __attrs_post_init__(self):
+        if isinstance(self.tokenExpiry, str):
+            self.tokenExpiry = self.parse_token_expiry(self.tokenExpiry)
+
     @staticmethod
-    def format_token_expiry(token_expiry: datetime) -> str:
-        """Format datetime to full ISO format with nanosecond precision."""
-        if token_expiry is not None:
-            # Get microseconds and calculate nanoseconds separately
-            timestamp_ns = int(token_expiry.timestamp() * 1_000_000_000)  # Convert to nanoseconds
-            dt_iso = token_expiry.strftime('%Y-%m-%dT%H:%M:%S')  # Base ISO format without microseconds
-            nanoseconds = f"{timestamp_ns % 1_000_000_000:09d}"  # Extract last 9 digits (nanoseconds)
-            return f"{dt_iso}.{nanoseconds}"  # Combine properly formatted parts
-        return None
+    def format_token_expiry(token_expiry) -> str:
+        """Format datetime to ISO format with nanosecond precision."""
+        if token_expiry is None:
+            return None
+
+        # 🔥 Handle string safely
+        if isinstance(token_expiry, str):
+            token_expiry = Data.parse_token_expiry(token_expiry)
+
+        timestamp_ns = int(token_expiry.timestamp() * 1_000_000_000)
+        dt_iso = token_expiry.strftime('%Y-%m-%dT%H:%M:%S')
+        nanoseconds = f"{timestamp_ns % 1_000_000_000:09d}"
+
+        return f"{dt_iso}.{nanoseconds}"
 
     @staticmethod
     def parse_token_expiry(token_expiry_str: str) -> datetime:
-        """Parse ISO format with nanoseconds precision back to datetime."""
-        if token_expiry_str is not None:
-            base_time, nano_str = token_expiry_str.split(".")  # Split seconds and nanoseconds
-            micro_str = nano_str[:6]  # Convert nanoseconds to microseconds for Python support
-            return datetime.strptime(f"{base_time}.{micro_str}", '%Y-%m-%dT%H:%M:%S.%f')
-        return None
+        """Parse ISO string (with/without nanoseconds) → datetime."""
+        if token_expiry_str is None:
+            return None
+
+        try:
+            if "." in token_expiry_str:
+                base_time, nano_str = token_expiry_str.split(".")
+                micro_str = nano_str[:6]  # Python supports microseconds
+                return datetime.strptime(f"{base_time}.{micro_str}", '%Y-%m-%dT%H:%M:%S.%f')
+            else:
+                return datetime.strptime(token_expiry_str, '%Y-%m-%dT%H:%M:%S')
+        except Exception:
+            # 🔥 fallback (prevents crash)
+            return None
 
     def to_dict(self):
-        """Return dictionary representation, ensuring tokenExpiry is formatted correctly."""
-        data = {key: value for key, value in attr.asdict(self).items() if value is not None}
+        """Return dict, formatting tokenExpiry correctly."""
+        data = {k: v for k, v in attr.asdict(self).items() if v is not None}
+
         if self.tokenExpiry:
             data['tokenExpiry'] = self.format_token_expiry(self.tokenExpiry)
+
         return data
 
     def __repr__(self):
-        """Custom string representation, ensuring tokenExpiry is formatted correctly."""
+        """Clean representation without crashing."""
         fields = ', '.join(
-            f"{key}={self.format_token_expiry(value) if key == 'tokenExpiry' and value is not None else repr(value)}"
-            for key, value in attr.asdict(self).items() if value is not None
+            f"{key}={self.format_token_expiry(value) if key == 'tokenExpiry' else repr(value)}"
+            for key, value in attr.asdict(self).items()
+            if value is not None
         )
         return f"{self.__class__.__name__}({fields})"

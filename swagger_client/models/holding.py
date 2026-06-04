@@ -18,9 +18,7 @@ class Holding:
     unRealizedPnl: float = None
     haircut: float = None
     pledgeable: bool = None
-    closePrice: float = None
     freeQty: int = None
-    currentValue: float = None
 
     swagger_types = {
         'symbol': SymbolDto,
@@ -37,9 +35,7 @@ class Holding:
         'unRealizedPnl': 'float',
         'haircut': 'float',
         'pledgeable': 'bool',
-        'closePrice': 'float',
-        'freeQty': 'int',
-        'currentValue': 'float'
+        'freeQty': 'int'
     }
 
     attribute_map = {
@@ -57,9 +53,7 @@ class Holding:
         'unRealizedPnl': 'unRealizedPnl',
         'haircut': 'haircut',
         'pledgeable': 'pledgeable',
-        'closePrice': 'closePrice',
-        'freeQty': 'freeQty',
-        'currentValue': 'currentValue'
+        'freeQty': 'freeQty'
     }
 
     def to_dict(self):

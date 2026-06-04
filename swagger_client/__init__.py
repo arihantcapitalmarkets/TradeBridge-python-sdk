@@ -27,12 +27,11 @@ from swagger_client.models.verify_otp_response import VerifyOtpResponse
 from swagger_client.models.resend_otp_request import ResendOtpRequest
 from swagger_client.models.refresh_token_request import RefreshTokenRequest
 from swagger_client.models.refresh_token_response import RefreshTokenResponse
-from swagger_client.models.success_response import SuccessResponse
+from swagger_client.models.contract_master_response import ContractMasterResponse
 from swagger_client.models.funds_sucess import FundsSuccess
 from swagger_client.models.get_profile_success_data import GetProfileSuccessData
 from swagger_client.models.get_profile_sucsess import GetProfileSuccess
 from swagger_client.models.get_profile_success_data import ProfileClientDtl
-from swagger_client.models.get_profile_success_data import ProfileBankDtl
 from swagger_client.models.funds_success_data import FundsSuccessData
 from swagger_client.models.funds_success_data import FundsView
 from swagger_client.models.history_success import HistorySuccess
@@ -40,8 +39,8 @@ from swagger_client.models.intraday_success import IntradaySuccess
 from swagger_client.models.intraday_success_data import IntradaySuccessData
 from swagger_client.models.profit_loss_cash_success import ProfitLossCashSuccess
 from swagger_client.models.profit_loss_cash_success_data import ProfitLossCashSuccessData
-from swagger_client.models.profit_loss_cash_success_data import PnlCash, BasicDtls
-from swagger_client.models.profit_loss_fo_success_data import ProfitLossFoSuccessData, PnlFo, Summary, BasicDtls
+from swagger_client.models.profit_loss_cash_success_data import PnlCash, CashBasicDtls
+from swagger_client.models.profit_loss_fo_success_data import ProfitLossFoSuccessData, PnlFo, FoSummary, FoBasicDtls
 from swagger_client.models.profit_loss_fo_success import ProfitLossFoSuccess
 from swagger_client.models.brokerage_charge import BrokerageCharge
 from swagger_client.models.brokerage_charge_response import BrokerageChargeResponse

@@ -3,7 +3,7 @@ from typing import List
 
 
 @attr.s(auto_attribs=True, repr=False)
-class Summary:
+class FoSummary:
     charges: str = None
 
     swagger_types = {
@@ -25,7 +25,7 @@ class Summary:
 
 
 @attr.s(auto_attribs=True, repr=False)
-class BasicDtls:
+class FoBasicDtls:
     Client_ID: str = None
     To: str = None
     Date: str = None
@@ -58,7 +58,6 @@ class PnlFo:
     realisedPnl: str = None
     date: str = None
     realisedPnlPerc: str = None
-    isRealized: bool = None
     unRealisedPnl: str = None
     saleVal: str = None
     sellAvg: str = None
@@ -70,13 +69,13 @@ class PnlFo:
     mrktVal: str = None
     unRealisedPnlPerc: str = None
     closePrice: str = None
+    isRealized: bool = None
 
     swagger_types = {
         'scripName': 'str',
         'realisedPnl': 'str',
         'date': 'str',
         'realisedPnlPerc': 'str',
-        'isRealized': 'bool',
         'unRealisedPnl': 'str',
         'saleVal': 'str',
         'sellAvg': 'str',
@@ -87,7 +86,8 @@ class PnlFo:
         'buyVal': 'str',
         'mrktVal': 'str',
         'unRealisedPnlPerc': 'str',
-        'closePrice': 'str'
+        'closePrice': 'str',
+        'isRealized': 'bool'
     }
 
     attribute_map = {
@@ -95,7 +95,6 @@ class PnlFo:
         'realisedPnl': 'realisedPnl',
         'date': 'date',
         'realisedPnlPerc': 'realisedPnlPerc',
-        'isRealized': 'isRealized',
         'unRealisedPnl': 'unRealisedPnl',
         'saleVal': 'saleVal',
         'sellAvg': 'sellAvg',
@@ -106,7 +105,8 @@ class PnlFo:
         'buyVal': 'buyVal',
         'mrktVal': 'mrktVal',
         'unRealisedPnlPerc': 'unRealisedPnlPerc',
-        'closePrice': 'closePrice'
+        'closePrice': 'closePrice',
+        'isRealized': 'isRealized'
     }
 
     def to_dict(self):
@@ -121,13 +121,13 @@ class PnlFo:
 
 @attr.s(auto_attribs=True)
 class ProfitLossFoSuccessData:
-    summary: Summary = None
-    basicDtls: BasicDtls = None
+    summary: FoSummary = None
+    basicDtls: FoBasicDtls = None
     pnlFo: List[PnlFo] = None
 
     swagger_types = {
-        'summary': 'Summary',
-        'basicDtls': 'BasicDtls',
+        'summary': 'FoSummary',
+        'basicDtls': 'FoBasicDtls',
         'pnlFo': 'list[PnlFo]'
     }
 

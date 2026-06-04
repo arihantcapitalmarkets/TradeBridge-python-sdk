@@ -1,21 +1,5 @@
-from typing import Optional
 import attr
-from enum import Enum
-
-
-class ExcEnum(str, Enum):
-    NSE = "NSE"
-    BSE = "BSE"
-    NFO = "NFO"
-    BFO = "BFO"
-    CDS = "CDS"
-    BCD = "BCD"
-    MCXSX = "MCXSX"
-    MCX = "MCX"
-    NCO = "NCO"
-    BCO = "BCO"
-    ICEX = "ICEX"
-
+from swagger_client.enums.exc_enum import ExcEnum
 
 @attr.s(auto_attribs=True)
 class CancelOrderRequest:
@@ -24,18 +8,15 @@ class CancelOrderRequest:
     symbol: str = None
     exc: ExcEnum = None
     ordId: str = None
-    remarks: str = None
 
     swagger_types = {
         'symbol': 'str',
         'exc': 'ExcEnum',
-        'ordId': 'str',
-        'remarks': 'str'
+        'ordId': 'str'
     }
 
     attribute_map = {
         'symbol': 'symbol',
         'exc': 'exc',
-        'ordId': 'ordId',
-        'remarks': 'remarks'
+        'ordId': 'ordId'
     }

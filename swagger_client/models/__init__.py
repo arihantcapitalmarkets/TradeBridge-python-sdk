@@ -14,12 +14,12 @@ from swagger_client.models.verify_otp_response import VerifyOtpResponse
 from swagger_client.models.resend_otp_request import ResendOtpRequest
 from swagger_client.models.refresh_token_request import RefreshTokenRequest
 from swagger_client.models.refresh_token_response import RefreshTokenResponse
+from swagger_client.models.contract_master_response import ContractMasterResponse
 from swagger_client.models.success_response import SuccessResponse
 from swagger_client.models.funds_sucess import FundsSuccess
 from swagger_client.models.get_profile_sucsess import GetProfileSuccess
 from swagger_client.models.get_profile_success_data import GetProfileSuccessData
 from swagger_client.models.get_profile_success_data import ProfileClientDtl
-from swagger_client.models.get_profile_success_data import ProfileBankDtl
 from swagger_client.models.funds_success_data import FundsSuccessData
 from swagger_client.models.funds_success_data import FundsView
 from swagger_client.models.history_success import HistorySuccess
@@ -32,9 +32,21 @@ from swagger_client.models.intraday_success import IntradaySuccess
 from swagger_client.models.intraday_success_data import IntradaySuccessData
 from swagger_client.models.profit_loss_cash_success import ProfitLossCashSuccess
 from swagger_client.models.profit_loss_cash_success_data import ProfitLossCashSuccessData
-from swagger_client.models.profit_loss_cash_success_data import PnlCash, BasicDtls
-from swagger_client.models.profit_loss_fo_success_data import ProfitLossFoSuccessData, PnlFo, Summary, BasicDtls
+from swagger_client.models.profit_loss_cash_success_data import PnlCash, CashBasicDtls
+from swagger_client.models.profit_loss_fo_success_data import ProfitLossFoSuccessData, PnlFo, FoSummary, FoBasicDtls
 from swagger_client.models.profit_loss_fo_success import ProfitLossFoSuccess
+from swagger_client.models.ledger_report_request import LedgerRequest, LedgerFilter
+from swagger_client.models.ledger_success_data import LedgerData, LedgerSuccessData, LedgerBasicDtls
+from swagger_client.models.ledger_report_response import LedgerReportResponse, LedgerSuccessData
+from swagger_client.models.tax_pnl_equity_request import TaxPnlEquityRequest, TaxPnlEquityFilter
+from swagger_client.models.tax_pnl_equity_response import TaxPnlEquityResponse, TaxPnlEquitySuccessData, SymbolDto, TaxEquitySummary, TaxEquityBasicDtls, TaxPnlCash
+from swagger_client.models.tax_pnl_fo_request import TaxPnlFoRequest, TaxPnlFoFilter
+from swagger_client.models.tax_pnl_fo_response import TaxPnlFoResponse, TaxPnlFoSuccessData, TaxBasicDtls, TaxSummary, TaxPnlFo
+from swagger_client.models.dp_holdings_request import DpHoldingsRequest
+from swagger_client.models.dp_holdings_response import DpHoldingsResponse, DpHoldingsSuccessData, DpBasicDtls, Equity
+from swagger_client.models.trade_history_request import TradeHistoryRequest, MultiFilter
+from swagger_client.models.trade_history_response import TradeHistoryResponse,TradeHistorySuccessData, Report
+from swagger_client.models.surveillance_symbols_response import SurveillanceSymbolsResponse, SurveillanceSymbolsData, Symbols
 from swagger_client.models.brokerage_charge import BrokerageCharge
 from swagger_client.models.brokerage_charge_response import BrokerageChargeResponse
 from swagger_client.models.brokerage_charge_data import BrokerageChargeData
@@ -71,5 +83,3 @@ from swagger_client.models.margin_calculator_request import MarginCalculatorRequ
 from swagger_client.models.margin_calculator_response import MarginCalculatorResponse, MarginCalculatorData
 from swagger_client.models.check_margin_request import CheckMarginRequest
 from swagger_client.models.check_margin_response import CheckMarginResponse, CheckMarginData
-
-

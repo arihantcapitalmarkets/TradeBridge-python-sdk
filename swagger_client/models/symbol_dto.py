@@ -3,7 +3,6 @@ from datetime import date
 import attr
 from typing import List
 
-
 @attr.s(auto_attribs=True, repr=False)
 class SymbolDto:
     symbol: str = None
@@ -25,6 +24,7 @@ class SymbolDto:
     fno: bool = None
     mtf: bool = None
     multiplier:str = None
+    asset:str = None
     freezeQty: str = None
     tradingSymbol: str = None
     otherExc: List[str] = None
@@ -50,6 +50,7 @@ class SymbolDto:
         'fno': 'bool',
         'mtf': 'bool',
         'multiplier': 'str',
+        'asset': 'str',
         'freezeQty': 'str',
         "tradingSymbol": 'str',
         'otherExc': 'list[str]',
@@ -76,6 +77,7 @@ class SymbolDto:
         'fno': 'fno',
         'mtf': 'mtf',
         'multiplier': 'multiplier',
+        'asset': 'asset',
         'freezeQty': 'freezeQty',
         "tradingSymbol": 'tradingSymbol',
         'otherExc': 'otherExc',

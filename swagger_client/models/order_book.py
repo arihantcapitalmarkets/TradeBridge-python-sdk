@@ -33,8 +33,7 @@ class OrderBook:
     amo: bool = None
     modifiable: bool = None
     cancellable: bool = None
-    orderStatus: str = None
-    orderUpdatedAt: str = None
+    excAlgoId: str = None
 
     swagger_types = {
         'symbol': SymbolDto,
@@ -66,8 +65,7 @@ class OrderBook:
         'amo': 'bool',
         'modifiable': 'bool',
         'cancellable': 'bool',
-        'orderStatus': 'str',
-        'orderUpdatedAt': 'str'
+        'excAlgoId': 'str'
     }
 
     attribute_map = {
@@ -100,8 +98,7 @@ class OrderBook:
         'amo': 'amo',
         'modifiable': 'modifiable',
         'cancellable': 'cancellable',
-        'orderStatus': 'orderStatus',
-        'orderUpdatedAt': 'orderUpdatedAt'
+        'excAlgoId': 'excAlgoId'
     }
 
     def to_dict(self):

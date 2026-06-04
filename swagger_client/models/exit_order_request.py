@@ -1,35 +1,7 @@
 import attr
-from enum import Enum
 
-
-class ExcEnum(str, Enum):
-    NSE = "NSE"
-    BSE = "BSE"
-    NFO = "NFO"
-    BFO = "BFO"
-    CDS = "CDS"
-    BCD = "BCD"
-    MCXSX = "MCXSX"
-    MCX = "MCX"
-    NCO = "NCO"
-    BCO = "BCO"
-    ICEX = "ICEX"
-
-
-class PrdTypeEnum(str, Enum):
-    CASH = "CASH"
-    MTF = "MTF"
-    INTRADAY = "INTRADAY"
-    MARGIN = "MARGIN"
-    SHORTSELL = "SHORTSELL"
-    COVER_ORDER = "COVER_ORDER"
-    BRACKET_ORDER = "BRACKET_ORDER"
-    NRML = "NRML"
-    TNC = "TNC"
-    DELIVERY = "DELIVERY"
-    CARRYFORWARD = "CARRYFORWARD"
-    NONE = "NONE"
-
+from swagger_client.enums.exc_enum import ExcEnum
+from swagger_client.enums.prd_type_enum import PrdTypeEnum
 
 @attr.s(auto_attribs=True)
 class ExitOrderRequest:
@@ -41,7 +13,6 @@ class ExitOrderRequest:
     boOrdStatus: str = None
     ordId: str = None
     parOrdId: str = None
-    remarks: str = None
 
     swagger_types = {
         'symbol': 'str',
@@ -49,8 +20,7 @@ class ExitOrderRequest:
         'prdType': 'PrdTypeEnum',
         'boOrdStatus': 'str',
         'ordId': 'str',
-        'parOrdId': 'str',
-        'remarks': 'str'
+        'parOrdId': 'str'
     }
 
     attribute_map = {
@@ -59,6 +29,5 @@ class ExitOrderRequest:
         'prdType': 'prdType',
         'boOrdStatus': 'boOrdStatus',
         'ordId': 'ordId',
-        'parOrdId': 'parOrdId',
-        'remarks': 'remarks'
+        'parOrdId': 'parOrdId'
     }

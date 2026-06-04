@@ -1,83 +1,8 @@
-from enum import Enum
 from typing import List
 import attr
-
-
-class InstrumentEnum(str, Enum):
-    STK = "STK"
-    ETF = "ETF"
-    IDX = "IDX"
-    COM = "COM"
-    UNDCUR = "UNDCUR"
-    CUR = "CUR"
-    FUTIVX = "FUTIVX"
-    FUTSTK = "FUTSTK"
-    FUTIDX = "FUTIDX"
-    FUTCUR = "FUTCUR"
-    FUTIRD = "FUTIRD"
-    FUTIRC = "FUTIRC"
-    FUTIRT = "FUTIRT"
-    FUTIRF = "FUTIRF"
-    FUTCOM = "FUTCOM"
-    FUTBLN = "FUTBLN"
-    FUTENR = "FUTENR"
-    FUTMET = "FUTMET"
-    FUTAGR = "FUTAGR"
-    OPTIDX = "OPTIDX"
-    OPTSTK = "OPTSTK"
-    OPTCOM = "OPTCOM"
-    OPTBLN = "OPTBLN"
-    OPTENR = "OPTENR"
-    OPTAGR = "OPTAGR"
-    OPTCUR = "OPTCUR"
-    OPTIRC = "OPTIRC"
-    OPTIRD = "OPTIRD"
-    UNDCOM = "UNDCOM"
-    AUCSO = "AUCSO"
-    FUTIDXSPR = "FUTIDXSPR"
-    FUTSTKSPR = "FUTSTKSPR"
-    FUTCURSPR = "FUTCURSPR"
-    FUTIRTSPR = "FUTIRTSPR"
-    FUTIRCSPR = "FUTIRCSPR"
-    FUTIRDSPR = "FUTIRDSPR"
-    OPTCURSPR = "OPTCURSPR"
-    OPTIRCSPR = "OPTIRCSPR"
-    FUTCOMSPR = "FUTCOMSPR"
-    OPTCOMSPR = "OPTCOMSPR"
-    UNDIRC = "UNDIRC"
-    UNDIRD = "UNDIRD"
-    UNDIRT = "UNDIRT"
-    NONE = "NONE"
-
-
-class ExcEnum(str, Enum):
-    NSE = "NSE"
-    BSE = "BSE"
-    NFO = "NFO"
-    BFO = "BFO"
-    CDS = "CDS"
-    BCD = "BCD"
-    MCXSX = "MCXSX"
-    MCX = "MCX"
-    NCO = "NCO"
-    BCO = "BCO"
-    ICEX = "ICEX"
-
-
-class PrdTypeEnum(str, Enum):
-    CASH = "CASH"
-    MTF = "MTF"
-    INTRADAY = "INTRADAY"
-    MARGIN = "MARGIN"
-    SHORTSELL = "SHORTSELL"
-    COVER_ORDER = "COVER_ORDER"
-    BRACKET_ORDER = "BRACKET_ORDER"
-    NRML = "NRML"
-    TNC = "TNC"
-    DELIVERY = "DELIVERY"
-    CARRYFORWARD = "CARRYFORWARD"
-    NONE = "NONE"
-
+from swagger_client.enums.exc_enum import ExcEnum
+from swagger_client.enums.instrument_enum import InstrumentEnum
+from swagger_client.enums.prd_type_enum import PrdTypeEnum
 
 @attr.s(auto_attribs=True)
 class Symbol:

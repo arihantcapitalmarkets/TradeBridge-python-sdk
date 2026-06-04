@@ -65,7 +65,6 @@ class OrderDetails:
 class OrderTrail:
     limitPrice: float = None
     lupdateDateTime: str = None
-    ordDesc:str = None
     modifiedBy: str = None
     status: str = None
     rejReason: str = None
@@ -73,18 +72,13 @@ class OrderTrail:
     qty: int = None
     pendingQty: int = None
     disQty: int = None
-    price: float = None
     exc: str = None
-    ordId: str = None
-    exchOrdId: str = None
-    currentOrdStatus: str = None
     tradedQty: int = None
     orderUpdatedAt: str = None
 
     swagger_types = {
         'limitPrice': 'float',
         'lupdateDateTime': 'str',
-        'ordDesc': 'str',
         'modifiedBy': 'str',
         'status': 'str',
         'rejReason': 'str',
@@ -92,11 +86,7 @@ class OrderTrail:
         'qty': 'int',
         'pendingQty': 'int',
         'disQty': 'int',
-        'price': 'float',
         'exc': 'str',
-        'ordId': 'str',
-        'exchOrdId': 'str',
-        'currentOrdStatus': 'str',
         'tradedQty': 'int',
         'orderUpdatedAt': 'str'
     }
@@ -104,7 +94,6 @@ class OrderTrail:
     attribute_map = {
         'limitPrice': 'limitPrice',
         'lupdateDateTime': 'lupdateDateTime',
-        'ordDesc': 'ordDesc',
         'modifiedBy': 'modifiedBy',
         'status': 'status',
         'rejReason': 'rejReason',
@@ -112,11 +101,7 @@ class OrderTrail:
         'qty': 'qty',
         'pendingQty': 'pendingQty',
         'disQty': 'disQty',
-        'price': 'price',
         'exc': 'exc',
-        'ordId': 'ordId',
-        'exchOrdId': 'exchOrdId',
-        'currentOrdStatus': 'currentOrdStatus',
         'tradedQty': 'tradedQty',
         'orderUpdatedAt': 'orderUpdatedAt'
     }

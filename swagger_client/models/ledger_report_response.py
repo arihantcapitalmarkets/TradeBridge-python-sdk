@@ -1,17 +1,17 @@
 import attr
-
+from swagger_client.models.ledger_success_data import LedgerSuccessData
 
 @attr.s(auto_attribs=True)
-class SuccessResponse(object):
+class LedgerReportResponse(object):
     infoID: str = None
     infoMsg: str = None
-    data: dict = None
+    data: LedgerSuccessData = None
     timestamp: int = None
 
     swagger_types = {
         'infoID': str,
         'infoMsg': str,
-        'data': object,
+        'data': LedgerSuccessData,
         'timestamp': int
     }
 
