@@ -334,7 +334,7 @@ login_response_body = loginAPI.login_normal_login_post(login_body, api_key, sour
 #
 # # Historical Data
 # chartAPI = ChartApi()
-# api_key = "eVyi720MYX1bTEiplt"
+# api_key = "EkX*******yUKfCC"
 # historical_data_response = chartAPI.historical_data(accessToken, api_key, source,
 #                                                     'TCS-EQ',
 #                                                     '1day',
@@ -346,7 +346,7 @@ login_response_body = loginAPI.login_normal_login_post(login_body, api_key, sour
 #
 # # Intraday Candle Data
 # chartAPI = ChartApi()
-# api_key = "eVyi720MYX1bTEiplt"
+# api_key = "EkX********yUKfCC"
 # intraday_body = IntradayCandleDataRequest(
 #     symbol="JIOFIN-EQ",
 #     resolution="1day",
